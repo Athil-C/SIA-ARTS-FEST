@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm">
-              © {currentYear} Funoon Fiesta. All rights reserved.
+              © {currentYear} Sia Art Fest. All rights reserved.
             </div>
             <div className="flex space-x-4 items-center">
               {/* YouTube */}

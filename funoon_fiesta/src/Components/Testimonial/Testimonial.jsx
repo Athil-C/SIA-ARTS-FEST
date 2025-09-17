@@ -7,24 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Testimonial = () => {
     const Testimonial_data = [
-        {
-            img: aliKuttyUsthad,
-            content_text: "Funun Fiesta is shaping history and engaging with the present. This platform beautifully conveys the messages of Islam to society.",
-            testimonial_name: 'Shikhul Jamia K.Alikutty Musliyar',
-            text_block: 'Principal of college',
-        },
-        {
-            img: kottumalaUsthad,
-            content_text: "Funun Fiesta is a unique platform connecting art with purpose. It beautifully shares the inspiring messages of Islam with society.",
-            testimonial_name: 'Moideen Kutty Musliyar Kottumala',
-            text_block: 'Proffeser of college',
-        },
-        {
-            img: asgaraliUsthad,
-            content_text: "Funun Fiesta beautifully blends creativity with purpose. It serves as a platform to share the inspiring messages of Islam with society.",
-            testimonial_name: 'Asgar Ali Faizy Pattikkad',
-            text_block: 'Lecture',
-        },
+ 
     ];
     
     const [current, setCurrent] = useState(0);

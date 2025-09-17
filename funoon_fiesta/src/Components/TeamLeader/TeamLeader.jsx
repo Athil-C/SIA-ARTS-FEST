@@ -17,40 +17,29 @@ const TeamLeader = () => {
   const teamLeaders = [
     { 
       id: 1, 
-      name:  "Basheer & Saeed ",
-      role: "ALEXANDRIA Group Leaders",
+      name:  "Team 1",
+      role: " Group Leaders",
       image: ALEXANDRIA,
     },
     { 
       id: 2, 
-      name: "Safwan & Fasil Ashkari",
-      role: "HIJAZIYYA Group Leaders",
+      name: "Team 2",
+      role: "Group Leader",
       image: HIJAZIYYA,
     },
     { 
       id: 3, 
-      name: "Saifullah & Ajmal", 
-      role: "KAZIMIYYA Group Leaders",
+      name: "Team 3", 
+      role: "Group Leader",
       image: KAZIMIYYA,
     },
     { 
       id: 4, 
-      name: "Anvar ali & Safwan", 
-      role: "SHAMIYYA Group Leader",
+      name: "Team 4", 
+      role: " Group Leader",
       image: QADISIYYA,
     },
-    { 
-      id: 5, 
-      name: "Qasim & Sahal", 
-      role: "QADISIYYA Group Leaders",
-      image: SHAMIYA,
-    },
-    { 
-      id: 6, 
-      name: "Murshid & Hamdan", 
-      role: "SHATIBIYYA Group Leaders",
-      image: SHATIBIYA,
-    },
+ 
     
   ];
 
