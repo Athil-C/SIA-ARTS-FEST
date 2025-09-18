@@ -90,7 +90,7 @@ const AddResultForm = () => {
     { 
       name: 'teamName', 
       icon: <Grid className="w-5 h-5 text-gray-400" />, 
-      options: ['ALEXANDRIA', 'SHATIBIYA', 'QADISIYYA', 'oooo'],
+      options: ['ALEXANDRIA', 'SHATIBIYA', 'QADISIYYA', '123'],
       required: true
     },
     { 
