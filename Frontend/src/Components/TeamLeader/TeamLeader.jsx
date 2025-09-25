@@ -17,26 +17,26 @@ const TeamLeader = () => {
   const teamLeaders = [
     { 
       id: 1, 
-      name:  "Team 1",
-      role: " Group Leaders",
-      image: ALEXANDRIA,
+      name:  "Mashhoor",
+      role: "Aws",
+      image: KAZIMIYYA,
     },
     { 
       id: 2, 
-      name: "Team 2",
-      role: "Group Leader",
+      name: "Salman",
+      role: "Khazraj",
       image: HIJAZIYYA,
     },
     { 
       id: 3, 
-      name: "Team 3", 
-      role: "Group Leader",
+      name: "Mashhoor", 
+      role: "Aws",
       image: KAZIMIYYA,
     },
     { 
       id: 4, 
-      name: "Team 4", 
-      role: " Group Leader",
+      name: "Salman", 
+      role: "Khazraj",
       image: QADISIYYA,
     },
  

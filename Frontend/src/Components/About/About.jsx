@@ -49,7 +49,7 @@ const About = () => {
           className="w-full md:w-3/5 flex justify-center items-center">
             <div className="w-3/4 text-center md:text-left mt-12 md:mt-0">
               <h1 className="text-4xl lg:text-7xl font-semibold text-primary">
-                Sia Art Fest
+                 Thawafuq Mini Arts Fest
               </h1>
               <p className="mt-4 text-base lg:text-lg leading-relaxed">
               The new society tries to break the Islamic cultures and live according to 
