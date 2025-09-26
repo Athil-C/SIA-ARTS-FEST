@@ -5,8 +5,8 @@ import NavBar from "./Components/Header/NavBar";
 import CursorAnimation from "./Components/Cursor/CursorAnimation";
 import { ProtectedRoute } from "./Components/AdminLogin/AdminLogin";
 import PWAInstallPrompt from "./Components/PWAInstallPrompt/PWAInstallPrompt";
-// import ComingSoon from "./Pages/ComingSoon";
- 
+import Gallery from "./Components/Gallery"; // ✅ keep this
+
 const Home = lazy(() => import("./Pages/Home"));
 const Result = lazy(() => import("./Pages/Result"));
 const Login = lazy(() => import("./Pages/Login"));
@@ -16,12 +16,8 @@ const CartPage = lazy(() => import("./Pages/CartPage"));
 const ScoreTable = lazy(() => import("./Pages/ScoreTable"));
 const TopParticipants = lazy(() => import("./Pages/TopPartPage"));
 
-// const IS_COMINGSOON = true;
-
+// ✅ single App component
 function App() {
-  // if (IS_COMINGSOON) {
-  //   return <ComingSoon />
-  // }
   return (
     <BrowserRouter>
       <CursorAnimation />
@@ -30,9 +26,10 @@ function App() {
       <Suspense fallback={<LoadingScreen />}>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/result' element={<Result />} />
-          <Route path="/poster/:programName" element={<PosterPage />} />
+          <Route path='/gallery' element={<Gallery />} /> {/* ✅ new route */}
+          <Route path='/poster/:programName' element={<PosterPage />} />
           <Route path='/scoretable' element={<ScoreTable />} />
           <Route path='/toppartficipants' element={<TopParticipants />} />
           <Route element={<ProtectedRoute />}>
