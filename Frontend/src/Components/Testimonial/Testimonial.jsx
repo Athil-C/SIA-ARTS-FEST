@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Testimonial = () => {
     const Testimonial_data = [
- 
+
     ];
     
     const [current, setCurrent] = useState(0);

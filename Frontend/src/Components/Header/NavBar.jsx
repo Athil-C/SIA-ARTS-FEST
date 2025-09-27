@@ -46,7 +46,7 @@ const NavBar = () => {
     { name: 'HOME', path: '/' },
     { name: 'RESULT', path: '/result' },
     { name: 'SCORE BOARD', path: '/scoretable' },
-    { name: 'GALLERY', path: '/Gallery' },
+   
     ...(user ? [
       { name: 'ADD RESULT', path: '/addresult' },
       { name: 'CART', path: '/cart' }

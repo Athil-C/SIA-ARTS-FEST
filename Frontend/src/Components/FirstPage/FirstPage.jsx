@@ -83,6 +83,7 @@ const FirstPage = () => {
           </motion.div>
         </div>
       </div>
+      
 
       {/* Pattern image positioned at the bottom */}
       <motion.div
