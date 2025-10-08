@@ -5,9 +5,9 @@ import HomeTxt from '../../assets/img/HomeImg/TextRed.webp';
 import HomePattern from '../../assets/img/pattern-01.png';
 
 // motion
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 // variants
-import { fadeIn } from '../FrameMotion/variants'
+import { fadeIn } from '../FrameMotion/variants';
 
 const FirstPage = () => {
   const navigate = useNavigate();
@@ -29,10 +29,10 @@ const FirstPage = () => {
             className="hidden md:block w-full md:w-full text-start md:text-left mb-8 md:mb-0">
             <div className="max-w-6xl mx-auto md:mx-0">
               <h1 className="text-3xl md:text-6xl font-semibold groupnumbers mb-4 text-secondery">
-                Welcome to Thawafuq Mini Arts Fest
+                Welcome to Witr
               </h1>
               <p className="mb-6 text-base md:text-lg text-gray-600 dark:text-white">
-                Thawafuq Mini Arts Fest is a premier platform for students to showcase their talents. It highlights the rich art forms of Islamic culture, presenting them to a wider audience. The event fosters creativity, cultural appreciation, and artistic expression.
+                Withr is a premier platform for students to showcase their talents. It highlights the rich art forms of Islamic culture, presenting them to a wider audience. The event fosters creativity, cultural appreciation, and artistic expression.
               </p>
               <button
                 type="button"
@@ -83,7 +83,6 @@ const FirstPage = () => {
           </motion.div>
         </div>
       </div>
-      
 
       {/* Pattern image positioned at the bottom */}
       <motion.div
@@ -91,10 +90,12 @@ const FirstPage = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.7 }}
-        className="w-full h-32 bg-repeat overflow-hidden"
+        className="w-full h-[100px] bg-repeat overflow-hidden" // Adjust height here
         style={{
           backgroundImage: `url(${HomePattern})`,
-          backgroundSize: '152px',
+          backgroundSize: 'auto 34px', // Adjusts the width to auto, but keeps the height at 100px
+          backgroundPosition: 'center', // Centers the pattern
+          height: '100px', // Set the height for the pattern
         }}
       />
     </section>
@@ -102,3 +103,5 @@ const FirstPage = () => {
 };
 
 export default FirstPage;
+
+

@@ -7,7 +7,24 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Testimonial = () => {
     const Testimonial_data = [
-
+        {
+            
+            content_text: "Witr is shaping history and engaging with the present. This platform beautifully conveys the messages of Islam to society.",
+            testimonial_name: 'Ramees TR',
+            text_block: 'Fest Coordinator',
+        },
+        {
+             
+            content_text: "Witr is a unique platform connecting art with purpose. It beautifully shares the inspiring messages of Islam with society.",
+            testimonial_name: ' Rabah Ali',
+            text_block: 'Fest Coordinator',
+        },
+        {
+            
+            content_text: "Witr beautifully blends creativity with purpose. It serves as a platform to share the inspiring messages of Islam with society.",
+            testimonial_name: 'Faris Panamaram',
+            text_block: ' Media Chairman ',
+        },
     ];
     
     const [current, setCurrent] = useState(0);

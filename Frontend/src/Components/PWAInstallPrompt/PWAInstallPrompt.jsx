@@ -130,7 +130,7 @@ const PWAInstallPrompt = () => {
               <h3 id="pwa-prompt-title" className="text-xl font-semibold">
                 {installStatus === 'success' 
                   ? 'Successfully Installed!'
-                  : 'Install Funoon Fiesta'}
+                  : 'Install WITHR'}
               </h3>
               <p className="text-sm text-gray-500">
                 {installStatus === 'success' 

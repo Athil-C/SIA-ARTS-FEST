@@ -15,7 +15,10 @@ import { fadeIn } from '../FrameMotion/variants';
 
 const TeamLeader = () => {
   const teamLeaders = [
-    { id: 1, name: "Mashhoor", role: "Aws", image: KAZIMIYYA },
+    { id: 1, name: "Shabeeh", role: " Meem Group Manager", image: KAZIMIYYA },
+    { id: 1, name: "Shameem", role: "Seen Group Manager", image: QADISIYYA },
+    { id: 1, name: "Hadi", role: "Qāf Group Manager", image: ALEXANDRIA },
+    { id: 1, name: "Sabith", role: "Dal Group Manager", image: HIJAZIYYA },
 
   ];
 
@@ -24,6 +27,17 @@ const TeamLeader = () => {
   return (
     <section className="py-8 sm:py-12 md:py-16 min-h-screen flex flex-col justify-center items-center">
 
+      {/* ✅ Video Section */}
+      <div className="my-4 p-4 h-[682px] w-[96%]  rounded-lg flex justify-center items-center overflow-hidden">
+        <video
+          src={SHAMIYA}
+          controls
+          autoPlay
+
+          muted
+          className="h-full w-full object-cover rounded-lg"
+        />
+      </div>
 
       {/* ✅ Swiper Section */}
       <motion.div
@@ -68,7 +82,7 @@ const TeamLeader = () => {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                </div>  
+                </div>
                 <div className="relative z-10 px-4 sm:px-6 pb-4 sm:pb-6 text-center">
                   <h3 className="text-xl sm:text-2xl font-bold mb-1 tracking-tight">{leader.name}</h3>
                   <p className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 uppercase tracking-widest">

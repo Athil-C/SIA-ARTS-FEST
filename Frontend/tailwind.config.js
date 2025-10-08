@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#D63C3E',
-        secondery: '#DB3F43',
+        primary: '#ebb61f',
+        secondery: '#eab218ff',
       },
       fontFamily: {
         sans: ['Nexa', 'sans-serif'],
@@ -27,3 +27,5 @@ export default {
   },
   plugins: [],
 }
+// tailwind.config.js
+ 

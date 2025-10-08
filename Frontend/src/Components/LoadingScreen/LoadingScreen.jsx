@@ -38,7 +38,7 @@ const LoadingScreen = () => {
           <img 
             src={logo}
             alt="Logo"
-            className="w-12 h-12 object-contain"
+            className="w-25 h-25 object-contain"
           />
         </div>
       </div>

@@ -49,14 +49,14 @@ const About = () => {
           className="w-full md:w-3/5 flex justify-center items-center">
             <div className="w-3/4 text-center md:text-left mt-12 md:mt-0">
               <h1 className="text-4xl lg:text-7xl font-semibold text-primary">
-                 Thawafuq Mini Arts Fest
+               Witr Sia Arts 
               </h1>
               <p className="mt-4 text-base lg:text-lg leading-relaxed">
               The new society tries to break the Islamic cultures and live according to 
               the new rational thinking freely without rules and regulations.  
               The world is preparing an opportunity for that.  But the true believer 
               who lives without giving up Islamic values ​​in any crisis presents the moral 
-              and cultural values ​​of the believer to the world through Sia Art Fest.
+              and cultural values ​​of the believer to the world through Withr.
               </p>
             </div>
           </motion.section>
