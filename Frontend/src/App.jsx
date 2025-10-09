@@ -7,6 +7,7 @@ import { ProtectedRoute } from "./Components/AdminLogin/AdminLogin";
 import PWAInstallPrompt from "./Components/PWAInstallPrompt/PWAInstallPrompt";
 import Gallery from "./Components/Gallery";
 
+// Lazy-loaded pages/components
 const Schedule = lazy(() => import("./Pages/Schedule"));
 const Home = lazy(() => import("./Pages/Home"));
 const Result = lazy(() => import("./Pages/Result"));
@@ -20,6 +21,8 @@ const TopParticipants = lazy(() => import("./Pages/TopPartPage"));
 // ✅ New Candidate Routes
 const CandidateSearch = lazy(() => import("./Components/Candidate/CandidateSearch"));
 const CandidateResult = lazy(() => import("./Components/Candidate/CandidateResult"));
+
+ 
 
 function App() {
   return (
@@ -41,6 +44,9 @@ function App() {
           {/* 🟩 New Candidate Routes */}
           <Route path="/candidate-search" element={<CandidateSearch />} />
           <Route path="/candidate/:id" element={<CandidateResult />} />
+
+          {/* Downloads Page Route */}
+ 
 
           <Route element={<ProtectedRoute />}>
             <Route path="/addresult" element={<AddResult />} />

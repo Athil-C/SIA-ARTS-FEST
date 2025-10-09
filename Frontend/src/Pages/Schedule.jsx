@@ -4,54 +4,73 @@ import { CalendarDays, Clock, MapPin, Timer } from "lucide-react";
 const Schedule = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const events = [
-    {
-      id: 1,
-      name: "Story Completion KND",
-      date: "Sep 11, 2025",
-      time: "9:50 PM",
-      duration: "30 min",
-      venue: "Main Hall",
-      section: "THANIYA",
-    },
-    {
-      id: 2,
-      name: "News Report ENG",
-      date: "Sep 12, 2025",
-      time: "7:50 PM",
-      duration: "30 min",
-      venue: "Auditorium",
-      section: "THANIYA",
-    },
-    {
-      id: 3,
-      name: "Hand Writing HND",
-      date: "Sep 12, 2025",
-      time: "9:50 PM",
-      duration: "30 min",
-      venue: "Room 204",
-      section: "THANIYA",
-    },
-    {
-      id: 4,
-      name: "Sentence Translation",
-      date: "Sep 12, 2025",
-      time: "7:50 PM",
-      duration: "30 min",
-      venue: "Room 108",
-      section: "THANIYA",
-    },
-    {
-      id: 4,
-      name: "Sentence Translation",
-      date: "Sep 12, 2025",
-      time: "7:50 PM",
-      duration: "30 min",
-      venue: "Room 108",
-      section: "super senior",
-    },
+  
+const events = [
+  {
+    id: 1,
+    name: "CROSS WORD",
+    date: "Sep 10, 2025",
+    time: "07:30 PM - 08:00 PM",
+    duration: "30 min",
+    venue: "Venue 3",
+    section: "Junior",
+  },
+  {
+    id: 2,
+    name: "SLOGAN MAKING",
+    date: "Sep 10, 2025",
+    time: "07:30 PM - 08:00 PM",
+    duration: "30 min",
+    venue: "Venue 2",
+    section: "Junior",
+  },
+  {
+    id: 3,
+    name: "MEMORY TEST",
+    date: "Sep 10, 2025",
+    time: "07:30 PM - 08:00 PM",
+    duration: "30 min",
+    venue: "Venue 2",
+    section: "Sub Junior",
+  },
+  {
+    id: 4,
+    name: "POSTER DESIGNING",
+    date: "Sep 10, 2025",
+    time: "07:30 PM - 08:00 PM",
+    duration: "30 min",
+    venue: "Venue 2",
+    section: "Junior",
+  },
+  {
+    id: 5,
+    name: "IMAGE ELABORATION",
+    date: "Sep 10, 2025",
+    time: "09:45 PM - 10:15 PM",
+    duration: "30 min",
+    venue: "Venue 1",
+    section: "Junior",
+  },
+  {
+    id: 6,
+    name: "THAHSKEEL",
+    date: "Sep 10, 2025",
+    time: "09:45 PM - 10:15 PM",
+    duration: "30 min",
+    venue: "Venue 1",
+    section: "Junior",
+  },
+  {
+    id: 7,
+    name: "PENCIL DRAWING",
+    date: "Sep 10, 2025",
+    time: "09:45 PM - 10:30 PM",
+    duration: "45 min",
+    venue: "Venue 1",
+    section: "Sub Junior",
+  },
+];
 
-  ];
 
   // Filter by search
   const filteredEvents = events.filter((event) => {

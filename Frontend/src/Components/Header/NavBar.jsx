@@ -42,21 +42,20 @@ const NavBar = () => {
     };
   }, [isMenuOpen]);
 
-  // Add the "Schedule" link to the menu
-const menus = [
-  { name: 'HOME', path: '/' },
-  { name: 'RESULT', path: '/result' },
-  { name: 'SCORE BOARD', path: '/scoretable' },
-  { name: 'GALLERY', path: '/gallery' },
-    { name: 'CANDIDATE', path: '/candidate-search' }, 
-  { name: 'SCHEDULE', path: '/schedule' }, // ✅ New item added
-  ...(user ? [
-    { name: 'ADD RESULT', path: '/addresult' },
-    { name: 'CART', path: '/cart' }
-  ] : [])
-];
-
-
+  // Add the "Schedule" and "Downloads" links to the menu
+  const menus = [
+    { name: 'HOME', path: '/' },
+    { name: 'RESULT', path: '/result' },
+    { name: 'SCORE BOARD', path: '/scoretable' },
+        { name: 'CANDIDATE', path: '/candidate-search' },
+    { name: 'SCHEDULE', path: '/schedule' }, // ✅ New item added
+    { name: 'GALLERY', path: '/gallery' },
+ 
+    ...(user ? [
+      { name: 'ADD RESULT', path: '/addresult' },
+      { name: 'CART', path: '/cart' }
+    ] : [])
+  ];
 
   const handleNavigation = (path) => {
     navigate(path);
