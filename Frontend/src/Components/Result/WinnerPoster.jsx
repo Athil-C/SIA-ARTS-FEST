@@ -141,7 +141,7 @@ const WinnerPoster = ({
           {/* Footer */}
           {/* <div className="mt-4 text-center">
             <p className="text-xs text-white/60">
-              Funoon Fiesta • 2024 - 2025
+            Witr Sia Arts Fest • 2024 - 2025
             </p>
           </div> */}
         </div>

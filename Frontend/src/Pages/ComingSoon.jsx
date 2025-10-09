@@ -49,7 +49,7 @@ const ComingSoon = () => {
 
         {/* Header Section */}
         <h1 className="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-200 text-transparent bg-clip-text">
-          Funoon Fiesta
+        Witr Sia Arts Fest
         </h1>
         <p className="text-xl md:text-2xl text-amber-100 mb-8">
           A Celebration of Islamic Art & Culture
@@ -65,7 +65,7 @@ const ComingSoon = () => {
 
         {/* Description */}
         <p className="text-lg text-amber-50 mb-12 max-w-3xl mx-auto leading-relaxed">
-          Funoon Fiesta is a premier platform for students to showcase their talents. 
+          Witr Sia Arts Fest is a premier platform for students to showcase their talents. 
           It highlights the rich art forms of Islamic culture, presenting them to a wider audience. 
           The event fosters creativity, cultural appreciation, and artistic expression.
         </p>

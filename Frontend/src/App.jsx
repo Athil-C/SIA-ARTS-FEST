@@ -22,7 +22,8 @@ const TopParticipants = lazy(() => import("./Pages/TopPartPage"));
 const CandidateSearch = lazy(() => import("./Components/Candidate/CandidateSearch"));
 const CandidateResult = lazy(() => import("./Components/Candidate/CandidateResult"));
 
- 
+// New Minus Points Page Route
+const MinusPointsPage = lazy(() => import("./Components/MinusPointsPage/MinusPointsPage"));  // Add this
 
 function App() {
   return (
@@ -45,9 +46,10 @@ function App() {
           <Route path="/candidate-search" element={<CandidateSearch />} />
           <Route path="/candidate/:id" element={<CandidateResult />} />
 
-          {/* Downloads Page Route */}
- 
+          {/* New Route for Minus Points */}
+          <Route path="/minus-points" element={<MinusPointsPage />} />  {/* Add this */}
 
+          {/* Downloads Page Route */}
           <Route element={<ProtectedRoute />}>
             <Route path="/addresult" element={<AddResult />} />
             <Route path="/cart" element={<CartPage />} />

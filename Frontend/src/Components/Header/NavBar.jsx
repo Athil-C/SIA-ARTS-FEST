@@ -42,15 +42,16 @@ const NavBar = () => {
     };
   }, [isMenuOpen]);
 
-  // Add the "Schedule" and "Downloads" links to the menu
+  // Add the "Minus Points" link to the menu
   const menus = [
     { name: 'HOME', path: '/' },
     { name: 'RESULT', path: '/result' },
     { name: 'SCORE BOARD', path: '/scoretable' },
-        { name: 'CANDIDATE', path: '/candidate-search' },
-    { name: 'SCHEDULE', path: '/schedule' }, // ✅ New item added
+    { name: 'CANDIDATE', path: '/candidate-search' },
+    { name: 'SCHEDULE', path: '/schedule' },
     { name: 'GALLERY', path: '/gallery' },
- 
+    { name: 'MINUS POINTS', path: '/minus-points' }, // ✅ New item added here
+
     ...(user ? [
       { name: 'ADD RESULT', path: '/addresult' },
       { name: 'CART', path: '/cart' }
