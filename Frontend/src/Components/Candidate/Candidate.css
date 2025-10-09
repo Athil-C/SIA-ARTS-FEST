@@ -1,0 +1,190 @@
+/* src/Components/Candidate/Candidate.css */
+:root{
+  --orange:#ff8a2b;
+  --orange-dark:#ef6c00;
+  --muted:#777;
+  --card-bg:#fff;
+  --shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.candidate-page{
+  min-height: calc(100vh - 40px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+  background: #fafafa;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.card {
+  width:100%;
+  max-width:720px;
+  background:var(--card-bg);
+  border-radius:14px;
+  padding:34px;
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+
+/* Search card */
+.search-card .avatar {
+  width:84px;
+  height:84px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background: #fff6f1;
+  border: 2px solid rgba(255,138,43,0.08);
+  margin:0 auto 14px;
+  font-size:32px;
+  color:var(--orange);
+}
+
+.search-card h2{
+  margin:6px 0 18px;
+  font-size:20px;
+  font-weight:700;
+}
+
+.input-wrap{
+  display:flex;
+  align-items:center;
+  border-radius:8px;
+  border:2px solid rgba(255,138,43,0.18);
+  padding:10px 12px;
+  margin-bottom:16px;
+  background: #fff;
+}
+
+.input-wrap .search-icon{
+  margin-right:10px;
+  font-size:16px;
+  color:var(--muted);
+  opacity:0.85;
+}
+
+.input-wrap input{
+  border:0;
+  outline:0;
+  width:100%;
+  font-size:15px;
+  padding:4px 0;
+}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:0;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:4px;
+}
+
+.btn.primary{
+  background: linear-gradient(180deg,var(--orange) 0%, var(--orange-dark) 100%);
+  color:white;
+  box-shadow: 0 8px 18px rgba(239,108,0,0.12);
+}
+
+.btn.ghost{
+  margin-top:14px;
+  background:transparent;
+  color:var(--orange-dark);
+  border:1px solid rgba(0,0,0,0.04);
+  width:auto;
+  padding:10px 18px;
+}
+
+/* Result card */
+.result-card .back,
+.notfound-card .back{
+  background:transparent;
+  border:0;
+  color:#444;
+  cursor:pointer;
+  margin-bottom:14px;
+  font-weight:600;
+}
+
+.result-top{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.avatar.big{
+  width:120px;
+  height:120px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+  font-weight:700;
+  color:white;
+  background: linear-gradient(180deg,var(--orange) 0%, var(--orange-dark) 100%);
+  box-shadow: 0 12px 30px rgba(239,108,0,0.12);
+}
+
+.info h2{
+  margin:0;
+  font-size:22px;
+  font-weight:800;
+}
+.info p{
+  margin:6px 0;
+  color:var(--muted);
+}
+.info .score{
+  margin-top:8px;
+  font-weight:700;
+  color:#222;
+}
+
+/* Not found */
+.notfound-card .avatar.big {
+  width:120px;
+  height:120px;
+  border-radius:20px;
+  margin:0 auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  font-weight:700;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:20px;
+  margin-top:14px;
+  font-weight:700;
+}
+
+.badge.not-available{
+  background: #fdecea;
+  color: #c64545;
+}
+
+.actions{
+  margin-top:18px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+}
+
+.btn.plain{
+  background:transparent;
+  border:1px solid rgba(0,0,0,0.06);
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  width:auto;
+}

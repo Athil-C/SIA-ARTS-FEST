@@ -48,6 +48,7 @@ const menus = [
   { name: 'RESULT', path: '/result' },
   { name: 'SCORE BOARD', path: '/scoretable' },
   { name: 'GALLERY', path: '/gallery' },
+    { name: 'CANDIDATE', path: '/candidate-search' }, 
   { name: 'SCHEDULE', path: '/schedule' }, // ✅ New item added
   ...(user ? [
     { name: 'ADD RESULT', path: '/addresult' },
