@@ -1,19 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import { motion } from 'framer-motion';
 import About1 from '../../assets/img/about/books.png';
 import About2 from '../../assets/img/about/journal.png';
 import About3 from '../../assets/img/about/pen.png';
-
-// motion
-import { motion } from 'framer-motion'
-// variants
-import { fadeIn } from '../FrameMotion/variants'
+import { fadeIn } from '../FrameMotion/variants';
 
 const About = () => {
-  // Duplicate images to create infinite effect
   const images = [About1, About2, About3, About1, About2, About3];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
+  const [showLiveUpdate, setShowLiveUpdate] = useState(true); // Live update visibility state
   const carouselRef = useRef(null);
 
   useEffect(() => {
@@ -36,8 +32,29 @@ const About = () => {
     }
   }, [currentImageIndex]);
 
+  useEffect(() => {
+    // Automatically hide the live update after a few seconds
+    const timer = setTimeout(() => {
+      setShowLiveUpdate(false);
+    }, 5000); // Hides the update after 5 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="h-screen py-12 flex justify-center">
+      {/* Live Update Notification */}
+      {showLiveUpdate && (
+        <motion.div
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -50, opacity: 0 }}
+          transition={{ type: 'spring', stiffness: 100 }}
+          className="absolute top-0 left-0 w-full bg-gradient-to-r from-orange-400 to-yellow-500 text-white py-2 px-4 text-center"
+        >
+          <p className="font-semibold">Welcome to Witr ArtsFest 2025! Registration is now open for all teams.</p>
+        </motion.div>
+      )}
+
       <div className="w-full flex justify-center items-center h-full">
         <div className="flex flex-col md:flex-row w-full md:w-3/4 gap-12">
           {/* Content Section */}
@@ -46,7 +63,8 @@ const About = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="w-full md:w-3/5 flex justify-center items-center">
+            className="w-full md:w-3/5 flex justify-center items-center"
+          >
             <div className="w-3/4 text-center md:text-left mt-12 md:mt-0">
               <h1 className="text-4xl lg:text-7xl font-semibold text-primary">
                 Witr Sia Arts
@@ -63,7 +81,8 @@ const About = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="w-full md:w-2/5 flex justify-center items-center relative">
+            className="w-full md:w-2/5 flex justify-center items-center relative"
+          >
             <div className="w-48 lg:w-64 overflow-hidden">
               <div
                 ref={carouselRef}

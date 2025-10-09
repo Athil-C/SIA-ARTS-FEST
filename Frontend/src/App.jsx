@@ -5,6 +5,8 @@ import NavBar from "./Components/Header/NavBar";
 import CursorAnimation from "./Components/Cursor/CursorAnimation";
 import { ProtectedRoute } from "./Components/AdminLogin/AdminLogin";
 import PWAInstallPrompt from "./Components/PWAInstallPrompt/PWAInstallPrompt";
+ 
+
 import Gallery from "./Components/Gallery";
 
 // Lazy-loaded pages/components
@@ -45,9 +47,13 @@ function App() {
           {/* 🟩 New Candidate Routes */}
           <Route path="/candidate-search" element={<CandidateSearch />} />
           <Route path="/candidate/:id" element={<CandidateResult />} />
+ 
+
 
           {/* New Route for Minus Points */}
-          <Route path="/minus-points" element={<MinusPointsPage />} />  {/* Add this */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/minus-points" element={<MinusPointsPage />} />  {/* Add this */}
+          </Route>
 
           {/* Downloads Page Route */}
           <Route element={<ProtectedRoute />}>

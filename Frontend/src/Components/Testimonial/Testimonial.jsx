@@ -23,7 +23,7 @@ const Testimonial = () => {
             
             content_text: "Witr beautifully blends creativity with purpose. It serves as a platform to share the inspiring messages of Islam with society.",
             testimonial_name: 'Faris Panamaram',
-            text_block: ' Media Chairman ',
+            text_block: ' Media  Controller ',
         },
     ];
     
