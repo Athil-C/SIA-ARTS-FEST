@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useResults } from "../../../context/DataContext";
-import { Trophy, Medal, ChevronRight, Award, Star, TrendingUp } from "lucide-react";
+import { Trophy, Medal, ChevronRight, TrendingUp } from "lucide-react";
 import TeamAchievements from '../TeamAchievements/TeamAchievements';
 import { motion } from 'framer-motion';
 
 const ScoreBoard = () => {
   const { results, uniquePrograms, groupPrograms, singlePrograms } = useResults();
-  const teamNames = ["Qāf","Meem","Dal","Seen"];
+  const teamNames = ["Qāf", "Meem", "Dal", "Seen"];
   const [activeTeam, setActiveTeam] = useState(null);
   const [expandedSection, setExpandedSection] = useState(null);
   const [selectedTeam, setSelectedTeam] = useState(null);
@@ -59,16 +59,19 @@ const ScoreBoard = () => {
     single: singlePrograms?.length > 0 ? singlePrograms : localPrograms.single
   };
 
+  // ✅ FIX: team name check now ignores case and spacing
   const getTotalPointsForTeam = (team) => {
     const teamResults = effectiveResults.filter(
-      (result) => result.teamName.toUpperCase() === team
+      (result) =>
+        result.teamName?.trim().toLowerCase() === team.trim().toLowerCase()
     );
-    return teamResults.reduce((total, curr) => total + curr.points, 0);
+    return teamResults.reduce((total, curr) => total + (curr.points || 0), 0);
   };
 
   const getMedalCount = (team) => {
     const teamResults = effectiveResults.filter(
-      (result) => result.teamName.toUpperCase() === team
+      (result) =>
+        result.teamName?.trim().toLowerCase() === team.trim().toLowerCase()
     );
     return {
       gold: teamResults.filter(r => r.prize?.toLowerCase() === "first").length,
@@ -128,7 +131,7 @@ const ScoreBoard = () => {
     );
   };
 
-  const MobileScoreCard = ({ program, teamResults }) => {
+  const MobileScoreCard = ({ program }) => {
     const isExpanded = expandedProgram === program;
 
     return (
@@ -138,16 +141,16 @@ const ScoreBoard = () => {
         className="bg-white dark:bg-[#2D2D2D] rounded-lg shadow-md mb-4 overflow-hidden"
       >
         <div
-          className={`flex justify-between items-center p-4 cursor-pointer ${isExpanded ? 'bg-gradient-to-r from-secondery/10 to-red-800/10' :
+          className={`flex justify-between items-center p-4 cursor-pointer ${isExpanded ? 'bg-gradient-to-r from-yellow-400/20 to-red-800/20' :
               'hover:bg-gray-50 dark:hover:bg-gray-700'
             }`}
           onClick={() => setExpandedProgram(isExpanded ? null : program)}
         >
           <div className="flex items-center space-x-3">
-            <Trophy className={`w-5 h-5 transition-colors duration-300 ${isExpanded ? 'text-secondery' : 'text-gray-400'
+            <Trophy className={`w-5 h-5 transition-colors duration-300 ${isExpanded ? 'text-yellow-400' : 'text-gray-400'
               }`} />
             <div className="flex flex-col">
-              <span className={`font-semibold transition-colors duration-300 ${isExpanded ? 'text-secondery' : ''
+              <span className={`font-semibold transition-colors duration-300 ${isExpanded ? 'text-yellow-400' : ''
                 }`}>
                 {program}
               </span>
@@ -166,8 +169,8 @@ const ScoreBoard = () => {
         >
           {teamNames.map((team, index) => {
             const teamResults = effectiveResults.filter(r =>
-              r.teamName.toUpperCase() === team &&
-              r.programName.toUpperCase() === program.toUpperCase()
+              r.teamName?.trim().toLowerCase() === team.trim().toLowerCase() &&
+              r.programName?.trim().toLowerCase() === program.trim().toLowerCase()
             );
 
             if (teamResults.length === 0) return null;
@@ -217,59 +220,24 @@ const ScoreBoard = () => {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="space-y-6"
     >
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: {
-            opacity: 1,
-            y: 0,
-            transition: {
-              staggerChildren: 0.1,
-              delayChildren: 0.2,
-            },
-          },
-        }}
-        className="grid grid-cols-2 gap-4"
-      >
+      <div className="grid grid-cols-2 gap-4">
         {teamNames.map((team) => (
-          <motion.div
-            key={team}
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              show: { opacity: 1, y: 0 },
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <motion.div key={team} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <TeamCard team={team} />
           </motion.div>
         ))}
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="space-y-4"
-      >
+      <div className="space-y-4">
         {[
           { title: 'Single Programs', programs: effectivePrograms.single },
           { title: 'General Programs', programs: effectivePrograms.unique },
           { title: 'Unique Programs', programs: effectivePrograms.group },
         ].map(({ title, programs }) => (
-          <motion.div
-            key={title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="space-y-2"
-          >
+          <div key={title} className="space-y-2">
             <motion.button
               onClick={() => setExpandedSection(expandedSection === title ? null : title)}
-              className="w-full flex justify-between items-center p-4 bg-gradient-to-r from-secondery to-red-800 rounded-lg text-white font-semibold"
+              className="w-full flex justify-between items-center p-4 bg-gradient-to-r from-yellow-400 to-red-800 rounded-lg text-white font-semibold"
               whileHover={{ scale: 1.02 }}
             >
               <span>{title}</span>
@@ -290,7 +258,8 @@ const ScoreBoard = () => {
             >
               {programs.map((program) => {
                 const programResults = effectiveResults.filter(
-                  (result) => result.programName.toUpperCase() === program.toUpperCase()
+                  (result) =>
+                    result.programName?.trim().toLowerCase() === program.trim().toLowerCase()
                 );
                 return (
                   <MobileScoreCard
@@ -301,9 +270,9 @@ const ScoreBoard = () => {
                 );
               })}
             </motion.div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </motion.div>
   );
 
@@ -311,7 +280,7 @@ const ScoreBoard = () => {
     <div className="overflow-x-auto rounded-lg bg-white dark:bg-transparent border border-white dark:border-[#2D2D2D] shadow-lg">
       <table className="table-auto w-full border-collapse text-sm sm:text-base">
         <thead>
-          <tr className="bg-gradient-to-r from-secondery to-red-800 text-white">
+          <tr className="bg-gradient-to-r from-yellow-400 to-red-800 text-white">
             <th className="px-4 py-4 text-left">PROGRAM NAME</th>
             {teamNames.map((team) => (
               <th key={team} className="px-4 py-4 text-center">{team}</th>
@@ -329,8 +298,9 @@ const ScoreBoard = () => {
               </td>
               {teamNames.map(team => {
                 const teamResults = effectiveResults.filter(
-                  r => r.programName.toUpperCase() === program.toUpperCase() &&
-                    r.teamName.toUpperCase() === team
+                  r =>
+                    r.programName?.trim().toLowerCase() === program.trim().toLowerCase() &&
+                    r.teamName?.trim().toLowerCase() === team.trim().toLowerCase()
                 );
 
                 return (
@@ -385,7 +355,6 @@ const ScoreBoard = () => {
     </div>
   );
 
-  // Check if we have any data to display
   const hasData = effectiveResults.length > 0;
 
   return (
@@ -394,16 +363,16 @@ const ScoreBoard = () => {
         <TeamAchievements
           teamName={selectedTeam}
           onBack={() => setSelectedTeam(null)}
-          results={effectiveResults}  // Pass the effective results to TeamAchievements
+          results={effectiveResults}
         />
       ) : (
         <>
           <div className="flex flex-col items-center mb-8 space-y-6">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-200 text-center">
               <span className="flex items-center justify-center space-x-3">
-                <Medal className="w-8 h-8 text-secondery" />
+                <Medal className="w-8 h-8 text-yellow-400" />
                 <span>SCOREBOARD</span>
-                <Medal className="w-8 h-8 text-secondery" />
+                <Medal className="w-8 h-8 text-yellow-400" />
               </span>
             </h1>
           </div>
@@ -412,12 +381,10 @@ const ScoreBoard = () => {
             <NoDataMessage />
           ) : (
             <>
-              {/* Mobile view */}
               <div className="md:hidden h-auto">
                 {renderMobileView()}
               </div>
 
-              {/* Desktop view */}
               <div className="hidden md:block">
                 {renderDesktopView()}
               </div>

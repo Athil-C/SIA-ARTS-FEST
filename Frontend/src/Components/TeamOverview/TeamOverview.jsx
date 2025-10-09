@@ -1,50 +1,85 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Activity, Medal } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { useResults } from '../../../context/DataContext';
+import React, { useEffect } from 'react'; 
+import { motion } from 'framer-motion'; 
+import { Activity, Medal } from 'lucide-react'; 
+import { useNavigate } from 'react-router-dom'; 
+import { useResults } from '../../../context/DataContext'; 
 
 // Define team colors and styling
 const TEAM_COLORS = {
-  'ALEXANDRIA': {
-    primary: '#4cad4e',
-    gradient: 'from-[#4cad4e] to-[#3d8c3f]',
-    light: '#e8f5e9'
+  'ALEXANDRIA': { 
+    primary: '#4cad4e', 
+    gradient: 'from-[#4cad4e] to-[#3d8c3f]', 
+    light: '#e8f5e9' 
   },
-  'SHATIBIYA': {
-    primary: '#c9194a',
-    gradient: 'from-[#c9194a] to-[#a1143b]',
-    light: '#fce4ec'
+  'SHATIBIYA': { 
+    primary: '#c9194a', 
+    gradient: 'from-[#c9194a] to-[#a1143b]', 
+    light: '#fce4ec' 
   },
-  'SHAMIYA': {
-    primary: '#6b3f24',
-    gradient: 'from-[#6b3f24] to-[#4e2e1a]',
-    light: '#efebe9'
+  'SHAMIYA': { 
+    primary: '#6b3f24', 
+    gradient: 'from-[#6b3f24] to-[#4e2e1a]', 
+    light: '#efebe9' 
   },
-  'HIJAZIYYA': {
-    primary: '#5a199b',
-    gradient: 'from-[#5a199b] to-[#461477]',
-    light: '#f3e5f5'
+  'HIJAZIYYA': { 
+    primary: '#5a199b', 
+    gradient: 'from-[#5a199b] to-[#461477]', 
+    light: '#f3e5f5' 
   },
-  'QADISIYYA': {
-    primary: '#33658a',
-    gradient: 'from-[#33658a] to-[#254c68]',
-    light: '#e3f2fd'
+  'QADISIYYA': { 
+    primary: '#33658a', 
+    gradient: 'from-[#33658a] to-[#254c68]', 
+    light: '#e3f2fd' 
   },
-  'KAZIMIYYA': {
-    primary: '#ffb703',
-    gradient: 'from-[#ffb703] to-[#cc9202]',
-    light: '#fff8e1'
+  'KAZIMIYYA': { 
+    primary: '#ffb703', 
+    gradient: 'from-[#ffb703] to-[#cc9202]', 
+    light: '#fff8e1' 
+  },
+  // New teams added with colors
+  'QĀF': { 
+    primary: '#FF6F61', // example color
+    gradient: 'from-[#FF6F61] to-[#D45746]',
+    light: '#FFD1C5'
+  },
+  'MEEM': { 
+    primary: '#6B8E23', // example color
+    gradient: 'from-[#6B8E23] to-[#556B2F]',
+    light: '#B8E986'
+  },
+  'DAL': { 
+    primary: '#FFB84D', // example color
+    gradient: 'from-[#FFB84D] to-[#E29A34]',
+    light: '#FFEBB8'
+  },
+  'SEEN': { 
+    primary: '#483D8B', // example color
+    gradient: 'from-[#483D8B] to-[#2A2A7A]',
+    light: '#B0C4DE'
   }
 };
 
-// TeamCard Component remains the same
+// Mapping abbreviations to full team names
+const TEAM_NAME_MAP = {
+  SHA: 'SHATIBIYA',
+  ALE: 'ALEXANDRIA',
+  KAZ: 'KAZIMIYYA',
+  QAD: 'QADISIYYA',
+  HIJ: 'HIJAZIYYA',
+  SHM: 'SHAMIYA',
+  QĀF: 'QĀF',
+  MEE: 'MEEM',
+  DAL: 'DAL',
+  SEE: 'SEEN'
+};
+
+// TeamCard Component
 const TeamCard = ({ team, index, totalPoints }) => {
   const getMedalColor = (index) => {
     switch (index) {
-      case 0: return '#FFD700';
-      case 1: return '#C0C0C0';
-      case 2: return '#CD7F32';
+      case 0: return '#FFD700'; // Gold
+      case 1: return '#C0C0C0'; // Silver
+      case 2: return '#CD7F32'; // Bronze
       default: return 'transparent';
     }
   };
@@ -56,7 +91,9 @@ const TeamCard = ({ team, index, totalPoints }) => {
       transition={{ duration: 0.3, delay: index * 0.1 }}
       className="relative group"
     >
-      <div className={`bg-gradient-to-br ${team.colors.gradient} rounded-xl shadow-lg transition-all duration-300 hover:scale-[1.02] transform-gpu`}>
+      <div
+        className={`bg-gradient-to-br ${team.colors.gradient} rounded-xl shadow-lg transition-all duration-300 hover:scale-[1.02] transform-gpu`}
+      >
         <div className="bg-white dark:bg-[#2D2D2D] rounded-xl p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
@@ -118,7 +155,7 @@ const TeamCard = ({ team, index, totalPoints }) => {
   );
 };
 
-// DistributionChart Component remains the same
+// DistributionChart Component
 const DistributionChart = ({ teams }) => {
   const maxPoints = Math.max(...teams.map(team => team.totalPoints));
 
@@ -163,7 +200,7 @@ const DistributionChart = ({ teams }) => {
   );
 };
 
-// Updated Main TeamOverview Component
+// Main TeamOverview Component
 const TeamOverview = () => {
   const navigate = useNavigate();
   const { results } = useResults();
@@ -186,7 +223,7 @@ const TeamOverview = () => {
 
     const teamPoints = {};
     currentResults.forEach((result) => {
-      const teamName = result.teamName.toUpperCase();
+      const teamName = TEAM_NAME_MAP[result.teamCode] || result.teamName.toUpperCase();
       if (!teamPoints[teamName]) {
         teamPoints[teamName] = 0;
       }
@@ -229,11 +266,6 @@ const TeamOverview = () => {
                   <p className="text-xs sm:text-sm text-gray-500">Real-time team rankings</p>
                 </div>
               </div>
-              {/* <div className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg w-full sm:w-auto">
-                <span className="text-xs sm:text-sm font-medium block text-center sm:text-left">
-                  Total Points: {totalPoints.toLocaleString()}
-                </span>
-              </div> */}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -250,7 +282,7 @@ const TeamOverview = () => {
                 </div>
               </div>
 
-              <DistributionChart teams={teams} totalPoints={totalPoints} />
+              <DistributionChart teams={teams} />
             </div>
           </div>
         </motion.div>
@@ -266,7 +298,7 @@ const TeamOverview = () => {
               onClick={() => navigate('/scoretable')}
               className="bg-secondery hover:bg-red-700 transition-colors py-2 sm:py-3 px-3 sm:px-8 md:px-12 lg:px-16 rounded-l-full text-base sm:text-lg md:text-xl text-white shadow-lg hover:shadow-xl transform-gpu transition-all duration-300 hover:scale-105"
             >
-             ‎ ‎ ‎ ‎ ‎ ‎  More Results
+              More Results
             </button>
             <button
               onClick={() => navigate('/toppartficipants')}

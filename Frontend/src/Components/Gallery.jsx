@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ImageModal from "./ImageModal";
 
  
+ 
 import img1 from "../assets/gallery/img1.jpg";
 import img2 from "../assets/gallery/img2.jpg";
 import img3 from "../assets/gallery/img3.jpg";
@@ -19,6 +20,21 @@ import img14 from "../assets/gallery/img14.jpg";
 import img15 from "../assets/gallery/img15.jpg";
 import img16 from "../assets/gallery/img16.jpg";
 import img17 from "../assets/gallery/img17.jpg";
+import img18 from "../assets/gallery/img18.jpg";
+import img19 from "../assets/gallery/img19.jpg";
+import img20 from "../assets/gallery/img20.jpg";
+import img21 from "../assets/gallery/img21.jpg";
+import img22 from "../assets/gallery/img22.jpg";
+import img23 from "../assets/gallery/img23.jpg";
+import img24 from "../assets/gallery/img24.jpg";
+import img25 from "../assets/gallery/img25.jpg";
+import img26 from "../assets/gallery/img26.jpg";
+import img27 from "../assets/gallery/img27.jpg";
+import img28 from "../assets/gallery/img28.jpg";
+import img29 from "../assets/gallery/img29.jpg";
+import img30 from "../assets/gallery/img30.jpg";
+import img31 from "../assets/gallery/img31.jpg";
+
 
 
 
@@ -28,8 +44,8 @@ const Gallery = () => {
 
 
 
-    const images = [ img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17
-    ];
+    const images = [  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31
+];
 
 
     return (

@@ -41,35 +41,31 @@ const About = () => {
       <div className="w-full flex justify-center items-center h-full">
         <div className="flex flex-col md:flex-row w-full md:w-3/4 gap-12">
           {/* Content Section */}
-          <motion.section 
-          variants={fadeIn("up", 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.7 }}
-          className="w-full md:w-3/5 flex justify-center items-center">
+          <motion.section
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="w-full md:w-3/5 flex justify-center items-center">
             <div className="w-3/4 text-center md:text-left mt-12 md:mt-0">
               <h1 className="text-4xl lg:text-7xl font-semibold text-primary">
-               Witr Sia Arts 
+                Witr Sia Arts
               </h1>
               <p className="mt-4 text-base lg:text-lg leading-relaxed">
-              The new society tries to break the Islamic cultures and live according to 
-              the new rational thinking freely without rules and regulations.  
-              The world is preparing an opportunity for that.  But the true believer 
-              who lives without giving up Islamic values ​​in any crisis presents the moral 
-              and cultural values ​​of the believer to the world through Withr.
+                The full logo combines the Malayalam letter 'ഋ' and the Arabic word وَتر (witr). The 'ഋ' is a largely unused, solitary vowel in Malayalam, and وَتر literally means 'alone' or 'single' in Arabic. This artistic fusion symbolizes singularity and uniqueness, celebrating the power and beauty found in being distinct or standing apart.
               </p>
             </div>
           </motion.section>
 
           {/* Carousel Section */}
-          <motion.section 
-          variants={fadeIn("down", 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.7 }}
-          className="w-full md:w-2/5 flex justify-center items-center relative">
+          <motion.section
+            variants={fadeIn("down", 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="w-full md:w-2/5 flex justify-center items-center relative">
             <div className="w-48 lg:w-64 overflow-hidden">
-              <div 
+              <div
                 ref={carouselRef}
                 className={`flex ${isTransitioning ? 'transition-transform duration-500 ease-in-out' : 'transition-none'}`}
                 style={{

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
+import { CalendarDays, Clock, MapPin, Timer } from "lucide-react";
 
 const Schedule = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const events = [
     {
@@ -12,7 +12,7 @@ const Schedule = () => {
       time: "9:50 PM",
       duration: "30 min",
       venue: "Main Hall",
-      section: "THANIYA"
+      section: "THANIYA",
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const Schedule = () => {
       time: "7:50 PM",
       duration: "30 min",
       venue: "Auditorium",
-      section: "THANIYA"
+      section: "THANIYA",
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const Schedule = () => {
       time: "9:50 PM",
       duration: "30 min",
       venue: "Room 204",
-      section: "THANIYA"
+      section: "THANIYA",
     },
     {
       id: 4,
@@ -39,12 +39,22 @@ const Schedule = () => {
       time: "7:50 PM",
       duration: "30 min",
       venue: "Room 108",
-      section: "THANIYA"
-    }
+      section: "THANIYA",
+    },
+    {
+      id: 4,
+      name: "Sentence Translation",
+      date: "Sep 12, 2025",
+      time: "7:50 PM",
+      duration: "30 min",
+      venue: "Room 108",
+      section: "super senior",
+    },
+
   ];
 
-  // Filter events based on search term (case-insensitive)
-  const filteredEvents = events.filter(event => {
+  // Filter by search
+  const filteredEvents = events.filter((event) => {
     const term = searchTerm.toLowerCase();
     return (
       event.name.toLowerCase().includes(term) ||
@@ -54,43 +64,72 @@ const Schedule = () => {
   });
 
   return (
-    <section className="min-h-screen bg-[#fef9f6] dark:bg-[#0e0e0e] text-gray-800 dark:text-white px-4 py-10">
+    <section className="min-h-screen bg-[#fffaf5] text-gray-900 px-4 py-10">
       <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <h1 className="text-4xl font-extrabold mb-2 text-center">📅 Event Schedule</h1>
-        <p className="text-center mb-6 text-gray-600 dark:text-gray-300">
+        <p className="text-center mb-8 text-gray-600">
           Find the full list of events, their times, and where they'll take place.
         </p>
 
-        {/* Search Bar */}
-        <div className="max-w-md mx-auto mb-8">
+        {/* Search */}
+        <div className="max-w-md mx-auto mb-10">
           <input
             type="text"
-            placeholder="Search events by name, venue or section..."
-            className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
+            placeholder="Search events..."
+            className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
             value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
-            aria-label="Search events"
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredEvents.length > 0 ? (
-            filteredEvents.map(event => (
+            filteredEvents.map((event) => (
               <div
                 key={event.id}
-                className="bg-blue-100 dark:bg-blue-900 rounded-lg p-6 shadow-md"
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all border border-gray-100"
               >
-                <h2 className="text-xl font-semibold mb-3">{event.name}</h2>
-                <p><span role="img" aria-label="calendar">📅</span> <strong>Date:</strong> {event.date}</p>
-                <p><span role="img" aria-label="alarm clock">⏰</span> <strong>Time:</strong> {event.time}</p>
-                <p><span role="img" aria-label="clock">🕒</span> <strong>Duration:</strong> {event.duration}</p>
-                <p><span role="img" aria-label="location pin">📍</span> <strong>Venue:</strong> {event.venue}</p>
-                <p><span role="img" aria-label="section">⏲️</span> <strong>Section:</strong> <span className="text-yellow-700 font-bold">{event.section}</span></p>
+                {/* Header Row */}
+                <div className="flex justify-between items-center mb-3">
+                  <h2 className="text-lg font-bold">{event.name}</h2>
+                  <span className="bg-yellow-400 text-black text-xs font-semibold px-3 py-1 rounded">
+                    {event.section}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p className="text-gray-500 text-sm mb-4">No description available</p>
+
+                {/* Date & Time */}
+                <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 mb-3">
+                  <div className="flex items-center bg-gray-100 px-3 py-1.5 rounded-md">
+                    <CalendarDays size={16} className="mr-2 text-orange-500" />
+                    {event.date}
+                  </div>
+                  <div className="flex items-center bg-gray-100 px-3 py-1.5 rounded-md">
+                    <Clock size={16} className="mr-2 text-orange-500" />
+                    {event.time}
+                  </div>
+                </div>
+
+                {/* Venue + Duration */}
+                <div className="flex justify-between items-center text-sm text-gray-600">
+                  <div className="flex items-center">
+                    <MapPin size={16} className="mr-2 text-orange-500" />
+                    {event.venue}
+                  </div>
+                  <div className="flex items-center">
+                    <Timer size={16} className="mr-1 text-orange-500" />
+                    {event.duration}
+                  </div>
+                </div>
               </div>
             ))
           ) : (
-            <p className="col-span-full text-center text-gray-500 dark:text-gray-400">
-              No events match your search.
+            <p className="col-span-full text-center text-gray-500">
+              No events found.
             </p>
           )}
         </div>
