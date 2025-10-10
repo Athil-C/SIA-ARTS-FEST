@@ -90,18 +90,21 @@ const FirstPage = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.7 }}
-        className="w-full h-[100px] bg-repeat overflow-hidden" // Adjust height here
+        className="w-full h-[100px] bg-repeat overflow-hidden"
         style={{
           backgroundImage: `url(${HomePattern})`,
-          backgroundSize: 'auto 34px', // Adjusts the width to auto, but keeps the height at 100px
-          backgroundPosition: 'center', // Centers the pattern
-          height: '100px', // Set the height for the pattern
+          backgroundSize: '2599px 34px',  // Correct property name and value
+          backgroundPosition: 'center',  // Centers the pattern
+          height: '100px',  // Set the height for the pattern
         }}
+
       />
     </section>
   );
 };
 
 export default FirstPage;
+
+
 
 
