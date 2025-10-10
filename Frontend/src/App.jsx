@@ -51,9 +51,9 @@ function App() {
 
 
           {/* New Route for Minus Points */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/minus-points" element={<MinusPointsPage />} />  {/* Add this */}
-          </Route>
+          
+            <Route path="/MinusPointsPage" element={<MinusPointsPage />} />  {/* Add this */}
+         
 
           {/* Downloads Page Route */}
           <Route element={<ProtectedRoute />}>

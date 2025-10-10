@@ -50,6 +50,7 @@ const NavBar = () => {
         { name: 'CANDIDATE', path: '/candidate-search' },
     { name: 'SCHEDULE', path: '/schedule' }, // ✅ New item added
     { name: 'GALLERY', path: '/gallery' },
+    { name: 'MINUS POINT', path: '/MinusPointsPage' },
  
     ...(user ? [
       { name: 'ADD RESULT', path: '/addresult' },
