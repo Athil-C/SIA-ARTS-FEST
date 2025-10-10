@@ -42,18 +42,7 @@ const About = () => {
 
   return (
     <section className="h-screen py-12 flex justify-center">
-      {/* Live Update Notification */}
-      {showLiveUpdate && (
-        <motion.div
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -50, opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 100 }}
-          className="absolute top-0 left-0 w-full bg-gradient-to-r from-orange-400 to-yellow-500 text-white py-2 px-4 text-center"
-        >
-          <p className="font-semibold">Welcome to Witr ArtsFest 2025! Registration is now open for all teams.</p>
-        </motion.div>
-      )}
+ 
 
       <div className="w-full flex justify-center items-center h-full">
         <div className="flex flex-col md:flex-row w-full md:w-3/4 gap-12">
