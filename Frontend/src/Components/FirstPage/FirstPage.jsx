@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HomeImg from '../../assets/img/HomeImg/festlogo.webp';
 import HomeTxt from '../../assets/img/HomeImg/TextRed.webp';
@@ -9,11 +9,30 @@ import { motion } from 'framer-motion';
 // variants
 import { fadeIn } from '../FrameMotion/variants';
 
+// canvas-confetti
+import confetti from 'canvas-confetti';
+
 const FirstPage = () => {
   const navigate = useNavigate();
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const handleResultRedirect = () => {
-    navigate('/result');  // Replace '/result' with your actual result route
+    navigate('/result'); // Replace with your actual result route
+  };
+
+  const handleCelebrateClick = () => {
+    // Trigger confetti
+    confetti({
+      particleCount: 200,
+      spread: 100,
+      origin: { y: 0.6 },
+    });
+
+    setShowConfetti(true);
+
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 5000);
   };
 
   return (
@@ -22,11 +41,12 @@ const FirstPage = () => {
         <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between px-4">
           {/* Content section */}
           <motion.div
-            variants={fadeIn("left", 0.3)}
+            variants={fadeIn('left', 0.3)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="hidden md:block w-full md:w-full text-start md:text-left mb-8 md:mb-0">
+            className="hidden md:block w-full md:w-full text-start md:text-left mb-8 md:mb-0"
+          >
             <div className="max-w-6xl mx-auto md:mx-0">
               <h1 className="text-3xl md:text-6xl font-semibold groupnumbers mb-4 text-secondery">
                 Welcome to Witr
@@ -44,33 +64,41 @@ const FirstPage = () => {
             </div>
           </motion.div>
 
-          {/* Image section - hidden on mobile */}
+          {/* Image section with hint */}
           <motion.div
-            variants={fadeIn("right", 0.3)}
+            variants={fadeIn('right', 0.3)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className=" md:flex w-3/4 justify-end items-center">
+            className="md:flex w-3/4 flex-col justify-end items-center"
+          >
             <img
               src={HomeImg}
               alt="Funoon Fiesta Logo"
-              className="max-w-[300px] w-full h-auto object-contain"
+              className="max-w-[300px] w-full h-auto object-contain cursor-pointer hover:scale-105 transition-transform duration-300"
+              onClick={handleCelebrateClick}
+              title="Click the logo to celebrate!"
             />
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-300 select-none">
+              Click the logo to celebrate! 🎉
+            </p>
           </motion.div>
 
+          {/* Mobile layout */}
           <motion.div
-            variants={fadeIn("down", 0.3)}
+            variants={fadeIn('down', 0.3)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="flex flex-col gap-5 md:hidden w-3/4 justify-end items-center mt-5">
+            className="flex flex-col gap-5 md:hidden w-3/4 justify-end items-center mt-5"
+          >
             <img
               src={HomeTxt}
-              alt="Funoon Fiesta Logo"
+              alt="Funoon Fiesta Text"
               className="max-w-[500px] w-full h-auto object-contain"
             />
             <motion.button
-              variants={fadeIn("up", 0.3)}
+              variants={fadeIn('up', 0.3)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.7 }}
@@ -81,30 +109,26 @@ const FirstPage = () => {
               View Results
             </motion.button>
           </motion.div>
+
+          {/* Celebrate button removed */}
         </div>
       </div>
 
-      {/* Pattern image positioned at the bottom */}
+      {/* Decorative pattern at the bottom */}
       <motion.div
-        variants={fadeIn("down", 0.3)}
+        variants={fadeIn('down', 0.3)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.7 }}
         className="w-full h-[100px] bg-repeat overflow-hidden"
         style={{
           backgroundImage: `url(${HomePattern})`,
-          backgroundSize: '2599px 34px',  // Correct property name and value
-          backgroundPosition: 'center',  // Centers the pattern
-          height: '100px',  // Set the height for the pattern
+          backgroundSize: '2599px 34px',
+          backgroundPosition: 'center',
         }}
-
       />
     </section>
   );
 };
 
 export default FirstPage;
-
-
-
-
