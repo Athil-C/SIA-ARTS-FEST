@@ -19,7 +19,31 @@ const About = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const carouselRef = useRef(null);
+  const [darkMode, setDarkMode] = useState(false); // Dark mode state
 
+  // Load saved theme or fallback to system preference
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      setDarkMode(true);
+      document.body.classList.add("dark");
+    } else {
+      setDarkMode(false);
+      document.body.classList.remove("dark");
+    }
+  }, []);
+
+  // Apply theme changes and store preference
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
+
+  const toggleDarkMode = () => setDarkMode((prev) => !prev);
+
+  // Carousel image switch
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -41,8 +65,15 @@ const About = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
+      {/* Dark Mode Toggle Button */}
+      <div className="fixed top-5 right-5 z-50">
+        
+      </div>
+
       {/* ---------- About Section ---------- */}
-      <section className="h-screen py-12 flex justify-center" style={{ backgroundColor: "#f3eae3ff" }}>
+      <section
+        className="h-screen py-12 flex justify-center bg-[#f3eae3ff] dark:bg-gray-900 transition-colors duration-300"
+      >
         <div className="w-full flex justify-center items-center h-full">
           <div className="flex flex-col md:flex-row w-full md:w-3/4 gap-12">
             {/* Text Section */}
@@ -57,7 +88,7 @@ const About = () => {
                 <h1 className="text-[4rem] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
                   Witr Sia Arts
                 </h1>
-                <p className="mt-6 text-lg lg:text-xl leading-relaxed text-black">
+                <p className="mt-6 text-lg lg:text-xl leading-relaxed text-black dark:text-gray-300">
                   The full logo combines the Malayalam letter 'ഋ' and the Arabic word وَتر (witr). The 'ഋ' is a largely unused, solitary vowel in Malayalam, and وَتر literally means 'alone' or 'single' in Arabic. This artistic fusion symbolizes singularity and uniqueness, celebrating the power and beauty found in being distinct or standing apart.
                 </p>
               </div>
@@ -96,10 +127,10 @@ const About = () => {
       </section>
 
       {/* ---------- Controllers Section ---------- */}
-      <section className="relative w-full py-16 px-6 md:px-16 overflow-hidden" style={{ backgroundColor: "#ee5b44ff" }}>
+      <section className="relative w-full py-16 px-6 md:px-16 overflow-hidden bg-[#ee5b44ff] dark:bg-gray-800 transition-colors duration-300">
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Gradient Text Heading */}
-<h2 className="text-5xl font-extrabold mb-12 text-center text-[#ffcc00]">
+          <h2 className="text-5xl font-extrabold mb-12 text-center text-[#ffcc00]">
             Controllers
           </h2>
 
@@ -110,12 +141,12 @@ const About = () => {
               {controllers.slice(0, 2).map((person, index) => (
                 <motion.div
                   key={index}
-                  className="flex flex-col items-center  p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-500"
+                  className="flex flex-col items-center p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-500"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                   style={{
-                  backgroundImage: "linear-gradient(135deg, #ff6600, #b30000)",
-                }}
+                  style={{
+                    backgroundImage: "linear-gradient(135deg, #ff6600, #b30000)",
+                  }}
                 >
                   <img
                     src={person.image}
@@ -133,12 +164,12 @@ const About = () => {
               {controllers.slice(2).map((person, index) => (
                 <motion.div
                   key={index}
-                  className="flex flex-col items-center  p-4 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-500 w-48"
+                  className="flex flex-col items-center p-4 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-500 w-48"
                   whileHover={{ scale: 1.1 }}
-                   style={{
-                  backgroundImage: "linear-gradient(135deg, #ff6600, #b30000)",
-                }}
                   whileTap={{ scale: 0.95 }}
+                  style={{
+                    backgroundImage: "linear-gradient(135deg, #ff6600, #b30000)",
+                  }}
                 >
                   <img
                     src={person.image}
@@ -151,17 +182,17 @@ const About = () => {
               ))}
             </div>
 
-            {/* Mobile View (Vertical Layout) */}
+            {/* Mobile View */}
             <div className="lg:hidden flex flex-col items-center justify-center gap-8">
               {controllers.map((person, index) => (
                 <motion.div
                   key={index}
-                  className="flex flex-col items-center  p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-500 w-56"
+                  className="flex flex-col items-center p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-500 w-56"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                   style={{
-                  backgroundImage: "linear-gradient(135deg, #ff6600, #b30000)",
-                }}
+                  style={{
+                    backgroundImage: "linear-gradient(135deg, #ff6600, #b30000)",
+                  }}
                 >
                   <img
                     src={person.image}
@@ -173,21 +204,6 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
-
-          {/* Media Incharge */}
-          <div className="mt-10 text-center">
-            <p className="text-white text-lg font-medium">
-           
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: "linear-gradient(135deg, #ff6600, #b30000)",
-                }}
-              >
- 
-              </span>
-            </p>
           </div>
         </div>
       </section>

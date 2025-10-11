@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useResults } from '../../../context/DataContext';
 import LiveTicker from "../LiveTicker"; // Correct path
 
+
 // Define team colors and styling
 const TEAM_COLORS = {
   'ALEXANDRIA': { primary: '#4cad4e', gradient: 'from-[#4cad4e] to-[#3d8c3f]', light: '#e8f5e9' },

@@ -263,3 +263,241 @@
     font-size: 1.1rem;
   }
 }
+/* --------------------------- */
+/* 🌙 Dark Mode Overrides */
+/* --------------------------- */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Main container */
+body.dark .minus-points-page {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Warning box */
+body.dark .warning {
+  background: #2a2a2a;
+  border-left-color: #f6a623;
+  color: #f9d28b;
+}
+
+/* Team cards */
+body.dark .team {
+  background: #2a2a2a;
+  color: #e0e0e0;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .team:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Penalty Records container */
+body.dark .penalty-records {
+  background: #1f1f1f;
+  color: #e0e0e0;
+}
+
+/* Penalty individual record */
+body.dark .penalty-record {
+  border-bottom: 1px solid #444;
+}
+
+/* Penalty code styles */
+body.dark .penalty-code span {
+  color: white; /* Retain readable label colors */
+}
+
+body.dark .penalty-code .under-review {
+  background-color: #f0ad4e;
+  color: #fff2cc;
+}
+
+body.dark .penalty-code .severity {
+  background-color: #c0a100;
+  color: #fff1c0;
+}
+
+/* Penalty descriptions */
+body.dark .penalty-description {
+  color: #cccccc;
+}
+
+/* Points */
+body.dark .points {
+  color: #ffaaaa;
+}
+
+/* Guidelines section */
+body.dark .penalty-guidelines {
+  background: #1f1f1f;
+  color: #e0e0e0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .common-violations ul,
+body.dark .serious-violations ul {
+  color: #cccccc;
+}
+
+/* Appeal process */
+body.dark .appeal-process {
+  background-color: #24344d;
+  color: #cce4ff;
+  box-shadow: inset 0 0 10px rgba(0, 128, 255, 0.2);
+}
+
+body.dark .appeal-process h3 {
+  color: #80bdff;
+}
+
+/* Team name colors (optional contrast tweaks) */
+body.dark .team-name.meem {
+  color: #ff7272;
+}
+
+body.dark .team-name.dal {
+  color: #66bfff;
+}
+
+body.dark .team-name.seen {
+  color: #74d99f;
+}
+
+body.dark .team-name.qaf {
+  color: #eecb56;
+}
+
+
+body.dark .dark\:bg-gray-700 {
+  background-color: #444 !important;
+}
+
+body.dark .dark\:text-white {
+  color: #fff !important;
+}
+
+
+/* Set base text color to white in dark mode */
+body.dark {
+  color: #ffffff;
+}
+
+/* Ensure all child elements inherit white text unless overridden */
+body.dark .minus-points-page,
+body.dark .warning,
+body.dark .team,
+body.dark .penalty-records,
+body.dark .penalty-guidelines,
+body.dark .penalty-description,
+body.dark .common-violations ul,
+body.dark .serious-violations ul,
+body.dark .appeal-process {
+  color: #ffffff;
+}
+
+/* Override specific text colors used in light mode */
+body.dark .team p,
+body.dark .penalty-description p,
+body.dark .common-violations ul,
+body.dark .serious-violations ul,
+body.dark small {
+  color: #dddddd;
+}
+/* 🌙 Dark Mode Styles */
+body.dark {
+  background-color: #1e1e1e;
+  color: #f2f2f2;
+}
+
+body.dark .minus-points-page {
+  background: #2b2b2b;
+  color: #f2f2f2;
+}
+
+body.dark .warning {
+  background: #3a2e1a;
+  color: #ffda8c;
+  border-color: #f6a623;
+}
+
+body.dark .team {
+  background: #333;
+  color: #f2f2f2;
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .team:hover {
+  box-shadow: 0 12px 25px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .penalty-records,
+body.dark .penalty-guidelines {
+  background: #2e2e2e;
+  color: #f2f2f2;
+}
+
+body.dark .penalty-record {
+  border-color: #444;
+}
+
+body.dark .penalty-records h2,
+body.dark .penalty-guidelines h2,
+body.dark .penalty-guidelines h3 {
+  color: #fff;
+}
+
+body.dark .penalty-description {
+  color: #ddd;
+}
+
+body.dark .common-violations ul,
+body.dark .serious-violations ul {
+  color: #e2e2e2;
+}
+
+body.dark .appeal-process {
+  background-color: #3a4c72;
+  color: #ffffff;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .team-name {
+  color: #ffffff;
+}
+
+
+/* Appeal Process Box - Light Mode */
+.appeal-process {
+  background-color: #e3f0ff;
+  color: #1a3d91;
+  padding: 20px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 20px;
+  box-shadow: inset 0 0 10px rgba(26, 61, 145, 0.15);
+}
+
+.appeal-process h3 {
+  color: #007bff;
+  margin-top: 0;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* 🌙 Dark Mode */
+body.dark .appeal-process {
+  background-color: #2a3c55;
+  color: #dce8ff;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .appeal-process h3 {
+  color: #7ab6ff;
+}
+
+
