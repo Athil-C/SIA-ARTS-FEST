@@ -4,7 +4,7 @@ import HomeImg from '../../assets/img/HomeImg/festlogo.webp';
 import HomeTxt from '../../assets/img/HomeImg/TextRed.webp';
 import HomePattern from '../../assets/img/pattern-01.png';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { fadeIn } from '../FrameMotion/variants';
 import confetti from 'canvas-confetti';
 
@@ -13,10 +13,10 @@ const FirstPage = () => {
   const [showHint, setShowHint] = useState(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setShowHint((prev) => !prev);
-    }, 5000);
-    return () => clearInterval(interval);
+    const timer = setTimeout(() => {
+      setShowHint(false);
+    }, 5000); // Show for 5 seconds
+    return () => clearTimeout(timer);
   }, []);
 
   const handleResultRedirect = () => {
@@ -32,51 +32,11 @@ const FirstPage = () => {
   };
 
   return (
-    <section
-      className="relative min-h-[90vh] flex flex-col bg-[#f3eae3] dark:bg-[#191919] text-white" // Dark mode background set to #191919
-    >
-      <style>{`
-        .logo-static {
-          cursor: pointer;
-          transition: none;
-          /* No hover or active effects */
-        }
-        .slide-fade {
-          position: relative;
-          font-weight: 700;
-          font-size: 1.25rem;
-          margin-top: 1rem;
-          background: linear-gradient(90deg, #f59e0b, #ec4899, #3b82f6, #22c55e);
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
-          animation: slideFade 5s ease-in-out infinite;
-          user-select: none;
-          text-align: center;
-        }
-        @keyframes slideFade {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          20% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          80% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          100% {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-        }
-      `}</style>
-
+    <section className="relative min-h-[90vh] flex flex-col bg-[#f3eae3] dark:bg-[#191919] text-white">
       <div className="flex-grow flex justify-center items-center px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between px-4">
 
+          {/* Left Side Text Content */}
           <motion.div
             variants={fadeIn('left', 0.3)}
             initial="hidden"
@@ -88,7 +48,7 @@ const FirstPage = () => {
               <h1 className="text-3xl md:text-6xl font-semibold mb-4 text-yellow-400">
                 Welcome to Witr
               </h1>
-              <p className="mb-6 text-base md:text-lg text-black dark:text-gray-300"> {/* Text color for light and dark mode */}
+              <p className="mb-6 text-base md:text-lg text-black dark:text-gray-300">
                 Withr is a premier platform for students to showcase their talents. It highlights the rich art forms of Islamic culture, presenting them to a wider audience. The event fosters creativity, cultural appreciation, and artistic expression.
               </p>
               <button
@@ -101,6 +61,7 @@ const FirstPage = () => {
             </div>
           </motion.div>
 
+          {/* Right Side Logo & Hint */}
           <motion.div
             variants={fadeIn('right', 0.3)}
             initial="hidden"
@@ -111,18 +72,27 @@ const FirstPage = () => {
             <img
               src={HomeImg}
               alt="Funoon Fiesta Logo"
-              className="max-w-[300px] w-full h-auto object-contain logo-static"
+              className="max-w-[300px] w-full h-auto object-contain cursor-pointer"
               onClick={handleCelebrateClick}
               title="Click the logo to celebrate!"
             />
-            {showHint && (
-              <p className="slide-fade">
-                 Tap the logo to ignite the celebration!
-              </p>
-            )}
+
+            <AnimatePresence>
+              {showHint && (
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 1 }}
+                  className="font-bold text-lg mt-4 text-center bg-gradient-to-r from-yellow-500 via-pink-500 to-blue-500 bg-clip-text text-transparent"
+                >
+                  Tap the logo to celebrate
+                </motion.p>
+              )}
+            </AnimatePresence>
           </motion.div>
 
-          {/* Mobile */}
+          {/* Mobile View */}
           <motion.div
             variants={fadeIn('down', 0.3)}
             initial="hidden"
@@ -151,7 +121,7 @@ const FirstPage = () => {
         </div>
       </div>
 
-      {/* Decorative pattern at bottom */}
+      {/* Bottom Decorative Pattern */}
       <motion.div
         variants={fadeIn('down', 0.3)}
         initial="hidden"
