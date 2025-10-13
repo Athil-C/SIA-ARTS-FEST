@@ -4,10 +4,11 @@ import { motion } from 'framer-motion';
 import { Bell } from 'lucide-react';
 
 const updates = [
-  "📢 Registration is now open for all teams.",
-  "💃 Dance competition results are now available. Check the Results page.",
-  "🎵 Music competition will start soon. Be prepared!",
-  "🏆 Final leaderboard will be announced tonight."
+  "📢 The venue for the 'Academic Talk ENG' (A8) has been moved from Stage 2 to **Auditorium A**. Please check the updated schedule.",
+  "⏳ **Day 2 (Oct 17)** is officially underway! Don't miss the 'Word Fight' (C31) starting at 7:30 AM at Stage 3.",
+  "💡 **Pro-tip:** Don't forget to submit any necessary digital files for 'Theme Presentation' (G6) by 6:00 PM today.",
+  "📣 Calling all volunteers! Report to the control desk for instructions regarding the evening events.",
+  "⚠️ **Correction:** The start time for 'TADRIS' (A22) on Oct 16 has been adjusted to **7:20 PM**."
 ];
 
 const LiveTicker = () => {
@@ -28,7 +29,7 @@ const LiveTicker = () => {
           transition={{
             repeat: Infinity,
             ease: 'linear',
-            duration: 20, // Speed of the scroll
+            duration: 110, // Speed of the scroll
           }}
         >
           {updates.map((text, idx) => (

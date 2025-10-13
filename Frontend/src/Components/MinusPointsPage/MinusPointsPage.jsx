@@ -22,57 +22,14 @@ const ThemeToggle = () => {
 
 // Sample data
 const penaltyRecords = [
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Late arrival for Classical Dance competition',
-    reporter: 'Judge Committee',
-    date: '2025-01-20',
-    time: '10:15 AM',
-    points: -5,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Low Severity',
-    teamName: 'Dal',
-    reason: 'Incomplete costume requirements for Group Song',
-    reporter: 'Event Coordinator',
-    date: '2025-01-20',
-    time: '11:30 AM',
-    points: -3,
-  },
-  {
-    code: 'MP003',
-    status: 'Under Review',
-    severity: 'Medium Severity',
-    teamName: 'Seen',
-    reason: 'Violation of stage discipline during Drama Performance',
-    reporter: 'Stage Manager',
-    date: '2025-01-20',
-    time: '2:45 PM',
-    points: -8,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Serious Violation',
-    teamName: 'Qāf',
-    reason: 'Unsportsmanlike conduct during results announcement',
-    reporter: 'Event Director',
-    date: '2025-01-20',
-    time: '5:30 PM',
-    points: -10,
-  },
+
 ];
 
 const teamsSummary = [
-  { name: 'Meem', totalDeduction: -15, incidents: 2 },
-  { name: 'Dal', totalDeduction: -18, incidents: 3 },
-  { name: 'Seen', totalDeduction: -8, incidents: 1 },
-  { name: 'Qāf', totalDeduction: -10, incidents: 1 },
+  { name: 'Meem', totalDeduction: 0, incidents: 0 },
+  { name: 'Dal', totalDeduction: 0, incidents: 0 },
+  { name: 'Seen', totalDeduction: 0, incidents: 0 },
+  { name: 'Qāf', totalDeduction: 0, incidents: 0 },
 ];
 
 const DetailedPenaltyRecords = () => (
