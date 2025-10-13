@@ -11,55 +11,67 @@ const API_URL = import.meta.env.VITE_API_URL.replace(/\/$/, '');
 // Points calculation matrices
 const prizePointsMatrix = {
   'SINGLE': {
-    'FIRST': 5,
-    'SECOND': 3,
+    'FIRST': 3,
+    'SECOND': 2,
     'THIRD': 1
   },
   'GROUP': {
-    'FIRST': 20,
-    'SECOND': 17,
-    'THIRD': 15
+    'FIRST': 10,
+    'SECOND': 7,
+    'THIRD': 5
   },
   'GENERAL': {
-    'FIRST': 10,
-    'SECOND': 8,
-    'THIRD': 6
+    'FIRST': 15,
+    'SECOND': 10,
+    'THIRD': 7
   }
 };
 
 const gradePoints = {
-  'A': 5,
-  'B': 3,
-  'C': 1
+  'SINGLE': {
+    'A': 5,
+    'B': 3,
+    'C': 1
+  },
+  'GROUP': {
+    'A': 15,
+    'B': 7,
+    'C': 5
+  },
+  'GENERAL': {
+    'A': 20,
+    'B': 15,
+    'C': 10
+  }
 };
 
 const calculatePoints = (category, prize, grade) => {
   let total = 0;
-  
+
   // Calculate prize points if prize is provided
   if (prize && category) {
     total += prizePointsMatrix[category]?.[prize] || 0;
   }
-  
+
   // Add grade points if grade is provided
   if (grade) {
-    total += gradePoints[grade] || 0;
+    total += gradePoints[category]?.[grade] || 0;
   }
-  
+
   return total || '';
 };
 
 const getPointsBreakdown = (category, prize, grade) => {
   const parts = [];
-  
+
   if (prize && category) {
     parts.push(`Prize (${prize}): ${prizePointsMatrix[category]?.[prize] || 0}`);
   }
-  
+
   if (grade) {
-    parts.push(`Grade (${grade}): ${gradePoints[grade] || 0}`);
+    parts.push(`Grade (${grade}): ${gradePoints[category]?.[grade] || 0}`);
   }
-  
+
   return parts.join(' + ');
 };
 
@@ -86,38 +98,47 @@ const AddResultForm = () => {
   const navigate = useNavigate();
 
   // Memoized form fields configuration
-  const formFields = useMemo(() => [
-    { 
-      name: 'teamName', 
-      icon: <Grid className="w-5 h-5 text-gray-400" />, 
-      options: ['Qāf','Meem','Dal','Seen'],
-      required: true
-    },
-    { 
-      name: 'category', 
-      icon: <ListChecks className="w-5 h-5 text-gray-400" />, 
-      options: ['SINGLE', 'GROUP', 'GENERAL'],
-      required: true
-    },
-    { 
-      name: 'stage', 
-      icon: <Star className="w-5 h-5 text-gray-400" />, 
-      options: ['STAGE', 'NON-STAGE'],
-      required: true
-    },
-    { 
-      name: 'prize', 
-      icon: <Trophy className="w-5 h-5 text-gray-400" />, 
-      options: ['FIRST', 'SECOND', 'THIRD'],
-      required: false
-    },
-    { 
-      name: 'grade', 
-      icon: <Star className="w-5 h-5 text-gray-400" />, 
-      options: ['A', 'B', 'C'],
-      required: false
-    }
-  ], []);
+  const formFields = useMemo(() => {
+    const fields = [
+      { 
+        name: 'teamName', 
+        icon: <Grid className="w-5 h-5 text-gray-400" />, 
+        options: ['Qāf', 'Meem', 'Dal', 'Seen'],
+        required: true
+      },
+      { 
+        name: 'category', 
+        icon: <ListChecks className="w-5 h-5 text-gray-400" />, 
+        options: ['SINGLE', 'GROUP', 'GENERAL'],
+        required: true
+      },
+      { 
+        name: 'stage', 
+        icon: <Star className="w-5 h-5 text-gray-400" />, 
+        options: ['STAGE', 'NON-STAGE'],
+        required: true
+      },
+      { 
+        name: 'prize', 
+        icon: <Trophy className="w-5 h-5 text-gray-400" />, 
+        options: ['FIRST', 'SECOND', 'THIRD'],
+        required: false
+      }
+    ];
+
+    // Only add the grade field if category is 'SINGLE' or 'GROUP'
+ if (['SINGLE', 'GROUP', 'GENERAL'].includes(formData.category)) {
+  fields.push({
+    name: 'grade', 
+    icon: <Star className="w-5 h-5 text-gray-400" />, 
+    options: ['A', 'B', 'C'],
+    required: false
+  });
+}
+
+
+    return fields;
+  }, [formData.category]);
 
   // Initialize form with edit data
   useEffect(() => {
@@ -133,15 +154,15 @@ const AddResultForm = () => {
       formData.prize,
       formData.grade
     ).toString();
-    
+
     const breakdown = getPointsBreakdown(
       formData.category,
       formData.prize,
       formData.grade
     );
-    
+
     setPointsBreakdown(breakdown);
-    
+
     if (calculatedPoints !== formData.points) {
       setFormData(prev => ({
         ...prev,
@@ -188,28 +209,28 @@ const AddResultForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validatePrizeOrGrade(formData)) {
       return;
     }
-    
+
     if (isDuplicate) {
       setError('This result appears to be a duplicate. Please verify the details.');
       return;
     }
-  
+
     setIsSubmitting(true);
     setError(null);
-  
+
     try {
       const cleanedFormData = {
         ...formData,
         studentName: formData.studentName.trim(),
         programName: formData.programName.trim()
       };
-  
+
       if (state?.result) {
-        await editResult(state.result._id, cleanedFormData); // Use editResult instead of direct axios call
+        await editResult(state.result._id, cleanedFormData);
       } else {
         await addResult(cleanedFormData);
       }
@@ -253,83 +274,79 @@ const AddResultForm = () => {
           {/* Student Name & Program Name inputs */}
           {['studentName', 'programName'].map(field => (
             <div key={field} className="relative">
-              {field === 'studentName' ? 
-                <User className="absolute left-3 top-3 w-5 h-5 text-gray-400" /> :
-                <Clipboard className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-              }
+              {field === 'studentName' && (
+                <User className="absolute w-5 h-5 text-gray-400 top-2 left-3" />
+              )}
+              {field === 'programName' && (
+                <Clipboard className="absolute w-5 h-5 text-gray-400 top-2 left-3" />
+              )}
               <input
                 type="text"
                 name={field}
-                placeholder={field === 'studentName' ? 'Student Name' : 'Program Name'}
                 value={formData[field]}
                 onChange={handleChange}
+                placeholder={field === 'studentName' ? 'Student Name' : 'Program Name'}
+                className="w-full py-2 pl-10 pr-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 required
-                className={`w-full pl-10 pr-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none ${
-                  formData[field] ? 'text-black' : 'text-gray-400 dark:text-gray-600'
-                }`}
               />
             </div>
           ))}
 
-          {/* Dropdowns */}
-          {formFields.map((field) => (
+          {/* Dynamic form fields */}
+          {formFields.map(field => (
             <div key={field.name} className="relative">
-              <div className="absolute left-3 top-3">{field.icon}</div>
+              {field.icon && (
+                <div className="absolute top-2 left-3">
+                  {field.icon}
+                </div>
+              )}
               <select
                 name={field.name}
                 value={formData[field.name]}
                 onChange={handleChange}
+                className="w-full py-2 pl-10 pr-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 required={field.required}
-                className={`w-full pl-10 pr-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none ${
-                  formData[field.name] ? 'text-black' : 'text-gray-400 dark:text-gray-600'
-                }`}
               >
-                <option value="">{`Select ${field.name.charAt(0).toUpperCase() + field.name.slice(1)}`}</option>
+                <option value="">Select {field.name}</option>
                 {field.options.map(option => (
-                  <option key={option} value={option}>{option}</option>
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
                 ))}
               </select>
             </div>
           ))}
 
-          {/* Points (Read-only) with hover info */}
+          {/* Points - read-only */}
           <div className="relative">
-            <Star className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-            <div className="relative group">
-              <input
-                type="text"
-                name="points"
-                placeholder="Points"
-                value={formData.points}
-                readOnly
-                className={`w-full pl-10 pr-10 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none ${
-                  formData.points ? 'text-black' : 'text-gray-400 dark:text-gray-600'
-                }`}
-              />
-              <button
-                type="button"
-                onClick={() => setShowPointsBreakdown(!showPointsBreakdown)}
-                className="absolute right-3 top-3"
-              >
-                <Info className="w-5 h-5 text-gray-400" />
-              </button>
-              {showPointsBreakdown && pointsBreakdown && (
-                <div className="absolute z-10 w-full p-2 mt-1 text-sm bg-white dark:bg-gray-800 border rounded-md shadow-lg">
-                  {pointsBreakdown}
-                </div>
-              )}
+            <div className="absolute top-2 left-3 text-gray-400">
+              <Info className="w-5 h-5" />
             </div>
+            <input
+              type="text"
+              name="points"
+              value={formData.points}
+              readOnly
+              placeholder="Points"
+              className="w-full py-2 pl-10 pr-4 border border-gray-300 rounded-md shadow-sm bg-gray-100 cursor-not-allowed"
+            />
           </div>
+
+          {/* Points Breakdown (optional) */}
+          {showPointsBreakdown && (
+            <div className="text-sm text-gray-600 mt-4">
+              <Info className="w-4 h-4 inline-block mr-2" />
+              Points Breakdown: {pointsBreakdown}
+            </div>
+          )}
 
           {/* Submit Button */}
           <button
             type="submit"
-            disabled={isSubmitting || isDuplicate}
-            className={`w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md shadow-md transition duration-300 ${
-              isSubmitting || isDuplicate ? 'opacity-50 cursor-not-allowed' : 'hover:-translate-y-1'
-            }`}
+            disabled={isSubmitting}
+            className="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500"
           >
-            {isSubmitting ? 'Submitting...' : state?.result ? 'Update Result' : 'Add Result'}
+            {isSubmitting ? 'Submitting...' : 'Submit Result'}
           </button>
         </form>
       </div>
