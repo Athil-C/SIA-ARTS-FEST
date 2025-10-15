@@ -2765,6 +2765,7 @@ const ProgramDetails = () => {
   const { id } = useParams();
   const candidate = candidateData.find((c) => c.id === id);
 
+  // When candidate is not found
   if (!candidate) {
     return (
       <motion.div
@@ -2789,6 +2790,7 @@ const ProgramDetails = () => {
     );
   }
 
+  // When candidate is found
   return (
     <div className="min-h-screen flex justify-center items-start bg-gradient-to-br from-orange-50 to-yellow-100 dark:from-gray-900 dark:to-gray-800 px-4 py-10">
       <motion.div
@@ -2817,25 +2819,31 @@ const ProgramDetails = () => {
             variants={fadeIn("up", 0.2)}
             className="bg-white/30 dark:bg-gray-800/40 rounded-xl py-4 px-6 shadow-inner list-disc list-inside space-y-2"
           >
-            {candidate.programs.map((program, index) => (
-              <li
-                key={index}
-                className="text-gray-900 dark:text-gray-100 font-medium"
-              >
-                {program.event}
+            {candidate.programs && candidate.programs.length > 0 ? (
+              candidate.programs.map((program, index) => (
+                <li
+                  key={index}
+                  className="text-gray-900 dark:text-gray-100 font-medium"
+                >
+                  {program.event}
+                </li>
+              ))
+            ) : (
+              <li className="text-red-600 dark:text-red-400 font-semibold">
+                ⚠️ No programs found. Please contact with Selman.
               </li>
-            ))}
+            )}
           </motion.ul>
+        </div>
 
-          {/* Back Button */}
-          <div className="text-center mt-6">
-            <Link
-              to="/candidate-search"
-              className="inline-block px-6 py-3 bg-gradient-to-r from-orange-500 to-yellow-400 text-white rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all font-semibold"
-            >
-              Back to Search
-            </Link>
-          </div>
+        {/* Back Button */}
+        <div className="text-center mt-6 mb-6">
+          <Link
+            to="/candidate-search"
+            className="inline-block px-6 py-3 bg-gradient-to-r from-orange-500 to-yellow-400 text-white rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all font-semibold"
+          >
+            Back to Search
+          </Link>
         </div>
       </motion.div>
     </div>
