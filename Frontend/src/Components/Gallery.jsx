@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ImageModal from "./ImageModal";
-
+import ScrollToTop from '../Components/ScrollToTop/ScrollToTop'
  
  
 import img1 from "../assets/gallery/img1.jpg";
@@ -60,9 +60,10 @@ const Gallery = () => {
                         onClick={() => setSelectedImage(src)}
                     >
                         <img src={src} alt={`Gallery ${index}`} className="w-full h-48 object-cover" />
+
                     </div>
                 ))}
-
+   <ScrollToTop />
             </div>
 
             {selectedImage && (
@@ -71,7 +72,9 @@ const Gallery = () => {
                     onClose={() => setSelectedImage(null)}
                 />
             )}
+
         </div>
+      
     );
 };
 

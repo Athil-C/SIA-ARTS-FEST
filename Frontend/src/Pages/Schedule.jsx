@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CalendarDays, Clock, MapPin, Timer, Sun, Moon } from "lucide-react";
+import ScrollToTop from '../Components/ScrollToTop/ScrollToTop'
 
 const Schedule = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -1383,6 +1384,7 @@ const Schedule = () => {
           )}
         </div>
       </div>
+       <ScrollToTop />
     </section>
   );
 };
