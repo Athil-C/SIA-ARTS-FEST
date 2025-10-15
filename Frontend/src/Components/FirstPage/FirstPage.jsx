@@ -46,7 +46,7 @@ const FirstPage = () => {
           >
             <div className="max-w-6xl mx-auto md:mx-0">
               <h1 className="text-3xl md:text-6xl font-semibold mb-4 text-yellow-400">
-                Welcome to Witr
+                Welcome to Withr
               </h1>
               <p className="mb-6 text-base md:text-lg text-black dark:text-gray-300">
                 Withr is a premier platform for students to showcase their talents. It highlights the rich art forms of Islamic culture, presenting them to a wider audience. The event fosters creativity, cultural appreciation, and artistic expression.

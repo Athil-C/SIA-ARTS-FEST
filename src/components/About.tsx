@@ -15,7 +15,7 @@ const About = () => {
       {/* Live Update Notification */}
       {showLiveUpdate && (
         <div className="absolute top-0 left-0 w-full bg-gradient-to-r from-primary via-accent to-secondary text-primary-foreground py-3 px-4 text-center animate-slide-in-down z-50">
-          <p className="font-semibold">Welcome to Witr ArtsFest 2025! Registration is now open for all teams.</p>
+          <p className="font-semibold">Welcome to Withr ArtsFest 2025! Registration is now open for all teams.</p>
         </div>
       )}
 
@@ -25,7 +25,7 @@ const About = () => {
           <section className="w-full md:w-3/5 flex justify-center items-center">
             <div className="w-full md:w-3/4 text-center md:text-left">
               <h1 className="text-4xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Witr Sia Arts
+                Withr Sia Arts
               </h1>
               <p className="mt-4 text-base lg:text-lg leading-relaxed text-muted-foreground">
                 The full logo combines the Malayalam letter 'ഋ' and the Arabic word وَتر (witr). 

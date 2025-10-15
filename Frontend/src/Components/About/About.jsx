@@ -86,10 +86,10 @@ const About = () => {
             >
               <div className="w-3/4 text-center md:text-left mt-12 md:mt-0 text-white">
                 <h1 className="text-[4rem] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
-                  Witr Sia Arts
+                  Withr Sia Arts
                 </h1>
                 <p className="mt-6 text-lg lg:text-xl leading-relaxed text-black dark:text-gray-300">
-                  The full logo combines the Malayalam letter 'ഋ' and the Arabic word وَتر (witr). The 'ഋ' is a largely unused, solitary vowel in Malayalam, and وَتر literally means 'alone' or 'single' in Arabic. This artistic fusion symbolizes singularity and uniqueness, celebrating the power and beauty found in being distinct or standing apart.
+                  The full logo combines the Malayalam letter 'ഋ' and the Arabic word وَتر (withr). The 'ഋ' is a largely unused, solitary vowel in Malayalam, and وَتر literally means 'alone' or 'single' in Arabic. This artistic fusion symbolizes singularity and uniqueness, celebrating the power and beauty found in being distinct or standing apart.
                 </p>
               </div>
             </motion.section>

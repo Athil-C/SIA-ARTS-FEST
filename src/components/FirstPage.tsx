@@ -12,10 +12,10 @@ const FirstPage = () => {
           <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
             <div className="max-w-2xl mx-auto md:mx-0">
               <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                Welcome to Witr
+                Welcome to Withr 
               </h1>
               <p className="mb-6 text-base md:text-lg text-muted-foreground">
-                Witr is a premier platform for students to showcase their talents. It highlights the rich art forms of Islamic culture, presenting them to a wider audience. The event fosters creativity, cultural appreciation, and artistic expression.
+                Withr is a premier platform for students to showcase their talents. It highlights the rich art forms of Islamic culture, presenting them to a wider audience. The event fosters creativity, cultural appreciation, and artistic expression.
               </p>
               <Button
                 onClick={() => navigate('/result')}
