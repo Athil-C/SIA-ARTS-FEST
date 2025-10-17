@@ -26,7 +26,7 @@ const LiveTicker = () => {
       <div className="relative w-full h-10 overflow-hidden">
         <motion.div
           className="absolute whitespace-nowrap"
-          initial={{ x: '30%' }} // Start at the right
+          initial={{ x: '0%' }} // Start at the right
           animate={{ x: '-100%' }} // Move to the left
           transition={{
             repeat: Infinity,
