@@ -42,13 +42,23 @@ import img36 from "../assets/gallery/img36.png";
 import img37 from "../assets/gallery/img37.png";
 import img38 from "../assets/gallery/img38.png";
 import img39 from "../assets/gallery/img39.png";
+import img40 from "../assets/gallery/img40.jpg";
+import img41 from "../assets/gallery/img41.jpg";
+import img42 from "../assets/gallery/img42.jpg";
+import img43 from "../assets/gallery/img43.jpg";
+import img47 from "../assets/gallery/img47.jpg";
+import img51 from "../assets/gallery/img51.jpg";
+import img53 from "../assets/gallery/img53.jpg";
+import img55 from "../assets/gallery/img55.jpg";
+import img56 from "../assets/gallery/img56.jpg";
+import img64 from "../assets/gallery/img64.jpg";
  
 import img44 from "../assets/gallery/img44.png";
  
 import img46 from "../assets/gallery/img46.png";
  
 import img48 from "../assets/gallery/img48.png";
-import img49 from "../assets/gallery/img49.png";
+ 
 import img50 from "../assets/gallery/img50.png";
  
 import img52 from "../assets/gallery/img52.png";
@@ -76,7 +86,7 @@ const Gallery = () => {
 
 
 
-    const images = [ , img32, img33, img34, img35, img36, img37, img38, img39,  img44,   img46, img48, img49, img50,  img52,   img57, img58,  img60, img61, img62, img63,  img65, img66,img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31,
+    const images = [img42,img64, img56, img55, img53, img51, img47, img43, img41, img40,  img32, img33, img34, img35, img36, img37, img38, img39,  img44,   img46, img48, img50,  img52,   img57, img58,  img60, img61, img62, img63,  img65, img66,img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31,
 ];
 
 
