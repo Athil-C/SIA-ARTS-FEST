@@ -26,12 +26,12 @@ const LiveTicker = () => {
       <div className="relative w-full h-10 overflow-hidden">
         <motion.div
           className="absolute whitespace-nowrap"
-          initial={{ x: '50%' }} // Start at the right
+          initial={{ x: '30%' }} // Start at the right
           animate={{ x: '-100%' }} // Move to the left
           transition={{
             repeat: Infinity,
             ease: 'linear',
-            duration: 40, // Speed of the scroll
+            duration: 70, // Speed of the scroll
           }}
         >
           {updates.map((text, idx) => (
