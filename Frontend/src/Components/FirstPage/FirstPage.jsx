@@ -71,7 +71,7 @@ const FirstPage = () => {
           >
             <img
               src={HomeImg}
-              alt="Funoon Fiesta Logo"
+              alt="Withr Logo"
               className="max-w-[300px] w-full h-auto object-contain cursor-pointer"
               onClick={handleCelebrateClick}
               title="Click the logo to celebrate!"
@@ -102,7 +102,7 @@ const FirstPage = () => {
           >
             <img
               src={HomeTxt}
-              alt="Funoon Fiesta Text"
+              alt="Withr Text"
               className="max-w-[500px] w-full h-auto object-contain"
             />
             <motion.button
