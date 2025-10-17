@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 import { Bell } from 'lucide-react';
 
 const updates = [
-  "📢 The venue for the 'Academic Talk ENG' (A8) has been moved from Stage 2 to **Auditorium A**. Please check the updated schedule.",
-  "⏳ **Day 2 (Oct 17)** is officially underway! Don't miss the 'Word Fight' (C31) starting at 7:30 AM at Stage 3.",
-  "💡 **Pro-tip:** Don't forget to submit any necessary digital files for 'Theme Presentation' (G6) by 6:00 PM today.",
-  "📣 Calling all volunteers! Report to the control desk for instructions regarding the evening events.",
-  "⚠️ **Correction:** The start time for 'TADRIS' (A22) on Oct 16 has been adjusted to **7:20 PM**."
+ 
+  "🎶 The program **'SUFI SAMA' (General)** will be held on **Oct 18, 2025**, from **7:40 PM to 8:30 PM** at **Stage 1**. Don’t miss the soulful performance!",
+  "🎤 The mesmerizing **'QAWWALI URD' (General)** is scheduled for **Oct 19, 2025**, from **9:30 PM to 10:10 PM** at **Stage 1**. Be there to witness the magic!",
+  "🏆 **Best of Fest!** On **Oct 20, 2025**, the most outstanding programs from the entire fest will be performed once again. Don’t miss this grand finale!",
+  "☕ **Power House** — a small **tea stall & bakery** run under the **Stationery Wing of the Students’ Union (SAFWA)** — is now open! Drop by for hot tea and fresh snacks.",
+  "⚠️ **Correction:** All participants are requested to update any **absent candidate changes one day before the program**."
+
 ];
 
 const LiveTicker = () => {
