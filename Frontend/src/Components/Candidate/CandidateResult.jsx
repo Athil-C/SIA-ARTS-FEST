@@ -3100,6 +3100,7 @@ const candidateData = [
     "chestNo": "549",
     "programs": [
       { "event": "ANNOUNCEMENT" },
+
       { "event": "TWEETING" },
       { "event": "ESSAY MLM" },
       { "event": "POEM WRITING ENG" },
