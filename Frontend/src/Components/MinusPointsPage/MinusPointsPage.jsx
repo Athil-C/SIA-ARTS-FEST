@@ -772,9 +772,9 @@ const MinusPointsPage = () => (
 
     <section className="team-penalty-summary">
       {teamsSummary.map((team, index) => (
-        <div key={index} className={`team ${team.name.toLowerCase().replace(' ', '-')}`}>
+        <div  key={index} className={`team ${team.name.toLowerCase().replace(' ', '-')}`}>
           <h3>{team.name}</h3>
-          <p>Total Deduction: {team.totalDeduction} pts</p>
+          <p  style={{ color: '#ff0800ff', }}>Total Deduction:  { team.totalDeduction} pts</p>
           <p>Incidents: {team.incidents}</p>
         </div>
       ))}
