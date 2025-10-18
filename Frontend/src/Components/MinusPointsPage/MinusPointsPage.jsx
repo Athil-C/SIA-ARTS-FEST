@@ -775,11 +775,10 @@ const MinusPointsPage = () => (
         <div key={index} className={`team ${team.name.toLowerCase().replace(' ', '-')}`}>
           <h3>{team.name}</h3>
           <p style={{
-            backgroundColor: 'rgb(217 83 79)',
-            color: 'white',
+          
+            color: 'red',
             borderRadius: '8px',  
-            border: '1px solid #ff0800',  
-            padding: '4px 8px'
+ 
           }}>Total Deduction:  {team.totalDeduction} pts</p>
           <p>Incidents: {team.incidents}</p>
         </div>
