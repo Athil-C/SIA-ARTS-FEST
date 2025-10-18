@@ -778,6 +778,7 @@ const MinusPointsPage = () => (
           
             color: 'red',
             borderRadius: '8px',  
+            fontWeight: 700,
  
           }}>Total Deduction:  {team.totalDeduction} pts</p>
           <p>Incidents: {team.incidents}</p>
