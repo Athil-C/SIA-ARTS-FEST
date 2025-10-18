@@ -13,9 +13,9 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setDarkMode(!darkMode)}
-       
+
     >
-   
+
     </button>
   );
 };
@@ -143,7 +143,7 @@ const penaltyRecords = [
     time: '10:15 AM',
     points: -1,
   },
- 
+
   {
     code: 'MP001',
     status: 'Applied',
@@ -254,7 +254,7 @@ const penaltyRecords = [
     time: '10:15 AM',
     points: -2,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -265,7 +265,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -2,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -276,7 +276,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -1,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -287,7 +287,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -1,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -298,7 +298,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -1,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -309,7 +309,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -1,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -320,7 +320,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -1,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -331,7 +331,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -1,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -342,7 +342,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -2,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -353,7 +353,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -2,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -364,7 +364,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -2,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -375,7 +375,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -2,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -386,7 +386,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -1,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -397,7 +397,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -1,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -408,7 +408,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -1,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -419,7 +419,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -4,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -430,7 +430,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -3,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -441,7 +441,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -2,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -452,7 +452,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -2,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -463,7 +463,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -1,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -474,7 +474,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -3,
   },
-    {
+  {
     code: 'MP002',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -485,7 +485,7 @@ const penaltyRecords = [
     time: '11:30 AM',
     points: -2,
   },
-    {
+  {
     code: 'MP003',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -496,8 +496,8 @@ const penaltyRecords = [
     time: '2:45 PM',
     points: -1,
   },
- 
-    {
+
+  {
     code: 'MP003',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -508,7 +508,7 @@ const penaltyRecords = [
     time: '2:45 PM',
     points: -1,
   },
-    {
+  {
     code: 'MP003',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -519,7 +519,7 @@ const penaltyRecords = [
     time: '2:45 PM',
     points: -1,
   },
-    {
+  {
     code: 'MP003',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -530,7 +530,7 @@ const penaltyRecords = [
     time: '2:45 PM',
     points: -1,
   },
-    {
+  {
     code: 'MP003',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -541,7 +541,7 @@ const penaltyRecords = [
     time: '2:45 PM',
     points: -1,
   },
-    {
+  {
     code: 'MP004',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -552,7 +552,7 @@ const penaltyRecords = [
     time: '5:30 PM',
     points: -1,
   },
-    {
+  {
     code: 'MP004',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -563,7 +563,7 @@ const penaltyRecords = [
     time: '5:30 PM',
     points: -12,
   },
-    {
+  {
     code: 'MP004',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -574,7 +574,7 @@ const penaltyRecords = [
     time: '5:30 PM',
     points: -1,
   },
-    {
+  {
     code: 'MP004',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -585,7 +585,7 @@ const penaltyRecords = [
     time: '5:30 PM',
     points: -1,
   },
-    {
+  {
     code: 'MP004',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -596,7 +596,7 @@ const penaltyRecords = [
     time: '5:30 PM',
     points: -1,
   },
-    {
+  {
     code: 'MP004',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -607,7 +607,7 @@ const penaltyRecords = [
     time: '5:30 PM',
     points: -1,
   },
-    {
+  {
     code: 'MP004',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -618,7 +618,7 @@ const penaltyRecords = [
     time: '5:30 PM',
     points: -4,
   },
-    {
+  {
     code: 'MP004',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -629,7 +629,7 @@ const penaltyRecords = [
     time: '5:30 PM',
     points: -1,
   },
-    {
+  {
     code: 'MP004',
     status: 'Applied',
     severity: 'Medium Severity',
@@ -640,7 +640,7 @@ const penaltyRecords = [
     time: '5:30 PM',
     points: -2,
   },
-     
+
   /*
   {
     code: 'MP002',
@@ -676,7 +676,7 @@ const penaltyRecords = [
     points: -10,
   },
   */
-  
+
 
 ];
 
@@ -691,9 +691,9 @@ const DetailedPenaltyRecords = () => (
   <div className="penalty-records">
     <h2>Detailed Penalty Records</h2>
     {penaltyRecords.map((record, index) => (
-      
+
       <div key={index} className="penalty-record">
-        
+
         <div className="penalty-code">
           <span>{record.code}</span>
           <span className={`status ${record.status.toLowerCase().replace(' ', '-')}`}>
@@ -772,9 +772,15 @@ const MinusPointsPage = () => (
 
     <section className="team-penalty-summary">
       {teamsSummary.map((team, index) => (
-        <div  key={index} className={`team ${team.name.toLowerCase().replace(' ', '-')}`}>
+        <div key={index} className={`team ${team.name.toLowerCase().replace(' ', '-')}`}>
           <h3>{team.name}</h3>
-          <p  style={{ color: '#ff0800ff', }}>Total Deduction:  { team.totalDeduction} pts</p>
+          <p style={{
+            backgroundColor: 'rgb(217 83 79)',
+            color: 'white',
+            borderRadius: '8px',  
+            border: '1px solid #ff0800',  
+            padding: '4px 8px'
+          }}>Total Deduction:  {team.totalDeduction} pts</p>
           <p>Incidents: {team.incidents}</p>
         </div>
       ))}
