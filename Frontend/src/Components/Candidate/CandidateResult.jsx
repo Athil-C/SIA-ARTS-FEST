@@ -3066,7 +3066,9 @@ const candidateData = [
       { "event": "PHOTOGRAPHY" },
       { "event": "POSTER DESIGNING DIGITAL" },
       { "event": "CELL MASTER" },
-      { "event": "WEB DESIGNING" }
+      { "event": "WEB DESIGNING" },
+      { "event": "NEWS READING AND READING MLM" },
+      { "event": "JUNCTION SPEECH MLM" }
     ]
   },
   {
@@ -3099,14 +3101,10 @@ const candidateData = [
     "programs": [
       { "event": "ANNOUNCEMENT" },
       { "event": "JUST A MINUTE" },
-      { "event": "ANCHORING" },
-      { "event": "PHOTOGRAPHY" },
       { "event": "TWEETING" },
       { "event": "ESSAY MLM" },
       { "event": "POEM WRITING ENG" },
-      { "event": "NEWS READING AND READING MLM" },
-      { "event": "STORY WRITING URD" },
-      { "event": "JUNCTION SPEECH MLM" },
+      { "event": "STORY WRITING URD" },,
       { "event": "PROOF READING URD" },
       { "event": "SLOGAN MAKING" }
     ]
