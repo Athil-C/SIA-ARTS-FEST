@@ -134,6 +134,18 @@ import img128 from "../assets/gallery/img128.jpg";
 import img127 from "../assets/gallery/img127.jpg";
 import img126 from "../assets/gallery/img126.jpg";
 import img125 from "../assets/gallery/img125.jpg";
+import img137 from "../assets/gallery/img137.jpg";
+import img138 from "../assets/gallery/img138.jpg";
+import img139 from "../assets/gallery/img139.jpg";
+import img140 from "../assets/gallery/img140.jpg";
+import img141 from "../assets/gallery/img141.jpg";
+import img142 from "../assets/gallery/img142.jpg";
+import img143 from "../assets/gallery/img143.jpg";
+import img144 from "../assets/gallery/img144.jpg";
+import img145 from "../assets/gallery/img145.jpg";
+import img146 from "../assets/gallery/img146.jpg";
+import img147 from "../assets/gallery/img147.jpg";
+import img148 from "../assets/gallery/img148.jpg";
 
 
 
@@ -146,7 +158,7 @@ const Gallery = () => {
 
   // ✅ All images in descending order
   const images = [
-    img136, img135, img134, img133, img132, img131, img130, img129, img128, img127, img126, img125,
+    img148, img146, img145, img144, img143, img142, img147, img141, img140, img139, img138, img137, img136, img135, img134, img133, img132, img131, img130, img129, img128, img127, img126, img125,
     img124, img123, img122, img121, img120, img119, img118, img117, img116, img115, img114, img113,
     img112, img111, img110, img109, img108, img107, img106, img105, img104, img103, img102, img101,
     img100, img99, img98, img97, img96, img95, img94, img93, img92, img91, img90, img89, img88, img87,
