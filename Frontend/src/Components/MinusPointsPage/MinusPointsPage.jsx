@@ -11,11 +11,7 @@ import './MinusPointsPage.css';
       localStorage.setItem("theme", darkMode ? "dark" : "light");
     }, [darkMode]);
 
-    return (
-      <button onClick={() => setDarkMode(!darkMode)}>
-        {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
-      </button>
-    );
+ 
   };
 
 // Sample data
