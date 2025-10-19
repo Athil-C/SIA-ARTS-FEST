@@ -142,47 +142,65 @@ import img125 from "../assets/gallery/img125.jpg";
 
 
 const Gallery = () => {
-    const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
+  // ✅ All images in descending order
+  const images = [
+    img136, img135, img134, img133, img132, img131, img130, img129, img128, img127, img126, img125,
+    img124, img123, img122, img121, img120, img119, img118, img117, img116, img115, img114, img113,
+    img112, img111, img110, img109, img108, img107, img106, img105, img104, img103, img102, img101,
+    img100, img99, img98, img97, img96, img95, img94, img93, img92, img91, img90, img89, img88, img87,
+    img86, img85, img84, img83, img82, img81, img80, img79, img78, img77, img76, img75, img74, img73,
+    img72, img71, img70, img69, img68, img67, img66, img65, img64, img63, img62, img61, img60, img58,
+    img57, img56, img55, img53, img52, img51, img50, img47, img46, img44, img43, img42, img41, img40,
+    img39, img38, img37, img36, img35, img34, img33, img32, img31, img30, img29, img28, img27, img26,
+    img25, img24, img23, img22, img21, img20, img19, img18, img17, img16, img15, img14, img13, img12,
+    img11, img10, img9, img8, img7, img6, img5, img4, img3, img2, img1,
+  ];
 
-
-    const images = [
-  img136, img135, img134, img133, img132, img131, img130, img129, img128, img127, img126, img125,img124, img123, img122, img121, img120, img119, img118, img117, img116, img115, img114, img113, img112, img111, img110, img109, img108, img107, img106, img105, img104, img103, img102, img101, img100, img99, img98, img97,
-   img96, img95, img94, img93, img92, img91, img90, img89, img88, img87, img86, img85, img84, img83,img82, img81, img80, img79, img78, img77, img76, img75, img74, img73, img72, img71, img70, img69, img68, img67,
-  img66, img65, img64, img63, img62, img61, img60, img58, img57, img56, img55, img53, img52, img51, img50, img47, img46, img44, img43, img42, img41, img40, img39, img38, img37, img36, img35, img34, img33, img32,
-  img31, img30, img29, img28, img27, img26, img25, img24, img23, img22, img21, img20, img19, img18, img17, img16, img15, img14, img13, img12, img11, img10, img9, img8, img7, img6, img5, img4, img3, img2, img1,
-];
-
-
-
-    return (
-        <div className="p-6">
-            <h2 className="text-3xl font-semibold text-center mb-6">Photo Gallery</h2>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {images.map((src, index) => (
-                    <div
-                        key={index}
-                        className="relative cursor-pointer overflow-hidden rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
-                        onClick={() => setSelectedImage(src)}
-                    >
-                        <img src={src} alt={`Gallery ${index}`} className="w-full h-48 object-cover" />
-
-                    </div>
-                ))}
-                <ScrollToTop />
-            </div>
-
-            {selectedImage && (
-                <ImageModal
-                    src={selectedImage}
-                    onClose={() => setSelectedImage(null)}
-                />
-            )}
-
-        </div>
-
+  const handleNext = () => {
+    setSelectedImageIndex((prev) =>
+      prev === images.length - 1 ? 0 : prev + 1
     );
+  };
+
+  const handlePrev = () => {
+    setSelectedImageIndex((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    );
+  };
+
+  return (
+    <div className="p-6">
+      <h2 className="text-3xl font-semibold text-center mb-6">Photo Gallery</h2>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {images.map((src, index) => (
+          <div
+            key={index}
+            className="relative cursor-pointer overflow-hidden rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
+            onClick={() => setSelectedImageIndex(index)}
+          >
+            <img
+              src={src}
+              alt={`Gallery ${index}`}
+              className="w-full h-48 object-cover"
+            />
+          </div>
+        ))}
+        <ScrollToTop />
+      </div>
+
+      {selectedImageIndex !== null && (
+        <ImageModal
+          src={images[selectedImageIndex]}
+          onClose={() => setSelectedImageIndex(null)}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
+      )}
+    </div>
+  );
 };
 
 export default Gallery;
