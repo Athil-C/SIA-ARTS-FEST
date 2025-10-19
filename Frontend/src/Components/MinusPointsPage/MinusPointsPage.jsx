@@ -20,10 +20,10 @@ const penaltyRecords = [
 ];
 
 const teamsSummary = [
-  { name: 'Meem', totalDeduction: -31, incidents: 25 },
-  { name: 'Dal', totalDeduction: -36, incidents: 25 },
-  { name: 'Seen', totalDeduction: -5, incidents: 5 },
-  { name: 'Qāf', totalDeduction: -24, incidents: 9 },
+  { name: 'Meem', totalDeduction: -38, incidents: 27 },
+  { name: 'Dal', totalDeduction: -42, incidents: 24 },
+  { name: 'Seen', totalDeduction: -10, incidents: 9 },
+  { name: 'Qāf', totalDeduction: -34, incidents: 17 },
 ];
 
 // 🔐 Creative Dashboard Portal Section
@@ -63,9 +63,9 @@ const PenaltyDashboardPortal = () => (
 
 const DetailedPenaltyRecords = () => (
   <div className="penalty-records">
-    <h2>Detailed Penalty Records</h2>
+    <h2> </h2>
     {penaltyRecords.length === 0 ? (
-      <p>No detailed records to display at the moment.</p>
+      <p> </p>
     ) : (
       penaltyRecords.map((record, index) => (
         <div key={index} className="penalty-record">

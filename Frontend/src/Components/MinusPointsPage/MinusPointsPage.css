@@ -75,13 +75,7 @@
 }
 
 /* Detailed Penalty Records */
-.penalty-records {
-  background: white;
-  padding: 25px 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
-  margin-bottom: 40px;
-}
+
 
 .penalty-records h2 {
   font-weight: 700;
