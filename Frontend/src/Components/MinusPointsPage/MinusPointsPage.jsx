@@ -1,683 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import QRCode from 'react-qr-code';
 import './MinusPointsPage.css';
 
 // 🌗 Dark Mode Toggle Component
-const ThemeToggle = () => {
-  const [darkMode, setDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
+  const ThemeToggle = () => {
+    const [darkMode, setDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
 
-  useEffect(() => {
-    document.body.classList.toggle("dark", darkMode);
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
-  }, [darkMode]);
+    useEffect(() => {
+      document.body.classList.toggle("dark", darkMode);
+      localStorage.setItem("theme", darkMode ? "dark" : "light");
+    }, [darkMode]);
 
-  return (
-    <button
-      onClick={() => setDarkMode(!darkMode)}
-
-    >
-
-    </button>
-  );
-};
+    return (
+      <button onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+      </button>
+    );
+  };
 
 // Sample data
 const penaltyRecords = [
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 662 is absent for Event D4.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 636 is absent for Event C20.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 566 is absent for Event B32.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 646 is absent for Event A55.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Serious Violation',
-    teamName: 'Meem',
-    reason: 'ILLEGAL MOBILE USING',
-    reporter: 'FEST Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -5,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 665 is absent for Event D8.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 610 is absent for Event B10.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 646 is absent for Event A35.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 671 is absent for Event C5.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 655 is absent for Event D11.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 638 is absent for Event C3.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 638 is absent for Event C16.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 589,710 is absent for Event B28.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 673 is absent for Event C19.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 662 is absent for Event D29.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 581,604 is absent for Event B9.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -2,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 596 is absent for Event B18.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -4,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 695 is absent for Event D27.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -2,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 622 is absent for Event C25.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 622 is absent for Event C6.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -1,
-  },
-  {
-    code: 'MP001',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Meem',
-    reason: 'Chest No. 587 is absent for Event B16.',
-    reporter: 'Judge Committee',
-    date: '2025-10-18',
-    time: '10:15 AM',
-    points: -2,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'LATE SUBMISSION OF NON STAGE LIST',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -2,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 592 is absent for Event B68.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -1,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 576 is absent for Event B60.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -1,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 617 is absent for Event C18.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -1,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 618 is absent for Event C31.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -1,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 611 is absent for Event C12.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -1,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 549 is absent for Event B8.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -1,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 664 is absent for Event C3.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -2,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 668 is absent for Event C3.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -2,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 501,520 is absent for Event A25.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -2,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 665 is absent for Event C30.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -2,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 614 is absent for Event C16.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -1,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 612 is absent for Event B4.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -1,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 692 is absent for Event D6.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -1,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No.611,653 is absent for Event C25.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -4,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No.692,738 is absent for Event D10.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -3,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 614 is absent for Event C8.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -2,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 679 is absent for Event A11.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -2,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 612 is absent for Event B19.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -1,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 617,629 is absent for Event C6.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -3,
-  },
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Dal',
-    reason: 'Chest No. 517 is absent for Event A10.',
-    reporter: 'Event Coordinator',
-    date: '2025-10-18',
-    time: '11:30 AM',
-    points: -2,
-  },
-  {
-    code: 'MP003',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Seen',
-    reason: 'Chest No. 667 is absent for Event C69.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '2:45 PM',
-    points: -1,
-  },
-
-  {
-    code: 'MP003',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Seen',
-    reason: 'Chest No. 502 is absent for Event A5.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '2:45 PM',
-    points: -1,
-  },
-  {
-    code: 'MP003',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Seen',
-    reason: 'Chest No. 506 is absent for Event C30.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '2:45 PM',
-    points: -1,
-  },
-  {
-    code: 'MP003',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Seen',
-    reason: 'Chest No. 572 is absent for Event B4.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '2:45 PM',
-    points: -1,
-  },
-  {
-    code: 'MP003',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Seen',
-    reason: 'Chest No. 572 is absent for Event B2.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '2:45 PM',
-    points: -1,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Qāf',
-    reason: 'Chest No. 637 is absent for Event C79.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '5:30 PM',
-    points: -1,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Qāf',
-    reason: 'ANZIL, HARSHIL, ASLAM (4*3).',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '5:30 PM',
-    points: -12,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Qāf',
-    reason: '654 MUHAMMED RIZWAN.K.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '5:30 PM',
-    points: -1,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Qāf',
-    reason: 'Chest No. 508 is absent for Event A1.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '5:30 PM',
-    points: -1,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Qāf',
-    reason: 'Chest No. 683 is absent for Event D36.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '5:30 PM',
-    points: -1,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Qāf',
-    reason: 'Chest No. 593  is absent for Event B39.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '5:30 PM',
-    points: -1,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Qāf',
-    reason: 'Chest No. 527,552 is absent for Event B5.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '5:30 PM',
-    points: -4,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Qāf',
-    reason: 'Chest No. 658 is absent for Event C12.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '5:30 PM',
-    points: -1,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Medium Severity',
-    teamName: 'Qāf',
-    reason: 'Chest No. 593 is absent for Event B18.',
-    reporter: 'Stage Manager',
-    date: '2025-10-18',
-    time: '5:30 PM',
-    points: -2,
-  },
-
-  /*
-  {
-    code: 'MP002',
-    status: 'Applied',
-    severity: 'Low Severity',
-    teamName: 'Dal',
-    reason: 'Incomplete costume requirements for Group Song',
-    reporter: 'Event Coordinator',
-    date: '2025-01-20',
-    time: '11:30 AM',
-    points: -3,
-  },
-  {
-    code: 'MP003',
-    status: 'Under Review',
-    severity: 'Medium Severity',
-    teamName: 'Seen',
-    reason: 'Violation of stage discipline during Drama Performance',
-    reporter: 'Stage Manager',
-    date: '2025-01-20',
-    time: '2:45 PM',
-    points: -8,
-  },
-  {
-    code: 'MP004',
-    status: 'Applied',
-    severity: 'Serious Violation',
-    teamName: 'Qāf',
-    reason: 'Unsportsmanlike conduct during results announcement',
-    reporter: 'Event Director',
-    date: '2025-01-20',
-    time: '5:30 PM',
-    points: -10,
-  },
-  */
-
-
+  // Sample records can go here
 ];
 
 const teamsSummary = [
@@ -687,39 +30,71 @@ const teamsSummary = [
   { name: 'Qāf', totalDeduction: -24, incidents: 9 },
 ];
 
+// 🔐 Creative Dashboard Portal Section
+const PenaltyDashboardPortal = () => (
+  <section className="penalty-dashboard-portal">
+    <h2>🛡️ Penalty Dashboard Access</h2>
+    <div className="dashboard-card">
+      <div className="dashboard-header">
+        <span className="status-badge">🟢 Online</span>
+        <span className="last-sync">Last synced: Oct 19, 2025</span>
+      </div>
+      <div className="dashboard-body">
+        <p className="dashboard-title">Access Live Penalty Sheet</p>
+        <p className="dashboard-desc">
+          A centralized view of all penalty records and deductions across teams. 
+          Ideal for coordinators, leaders, and judges.
+        </p>
+        <a
+          href="https://docs.google.com/spreadsheets/d/1XT7k3Bc9nQ5wk3_h0RrDvmbsdkLGepy8C0078rlvo4c/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="open-dashboard-btn"
+        >
+          Launch Dashboard ↗
+        </a>
+        <div className="qr-section">
+          <p>📱 Scan to open on your phone:</p>
+          <QRCode
+            value="https://docs.google.com/spreadsheets/d/1XT7k3Bc9nQ5wk3_h0RrDvmbsdkLGepy8C0078rlvo4c/edit?usp=sharing"
+            size={80}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const DetailedPenaltyRecords = () => (
   <div className="penalty-records">
     <h2>Detailed Penalty Records</h2>
-    {penaltyRecords.map((record, index) => (
-
-      <div key={index} className="penalty-record">
-
-        <div className="penalty-code">
-          <span>{record.code}</span>
-          <span className={`status ${record.status.toLowerCase().replace(' ', '-')}`}>
-            {record.status}
-          </span>
-          <span className="severity">{record.severity}</span>
+    {penaltyRecords.length === 0 ? (
+      <p>No detailed records to display at the moment.</p>
+    ) : (
+      penaltyRecords.map((record, index) => (
+        <div key={index} className="penalty-record">
+          <div className="penalty-code">
+            <span>{record.code}</span>
+            <span className={`status ${record.status.toLowerCase().replace(' ', '-')}`}>
+              {record.status}
+            </span>
+            <span className="severity">{record.severity}</span>
+          </div>
+          <div className="penalty-description">
+            <p className={`team-name ${record.teamName.toLowerCase().replace(' ', '-')}`}>
+              <strong>{record.teamName}</strong>
+            </p>
+            <p>{record.reason}</p>
+            <p><small><i>Reported by:</i> {record.reporter}</small></p>
+            <p><small><i>Date:</i> {record.date} at {record.time}</small></p>
+          </div>
+          <div className="points">
+            <span className="deduction-points">{record.points}</span>
+            <br /><small>points</small>
+          </div>
         </div>
-        <div className="penalty-description">
-          <p className={`team-name ${record.teamName.toLowerCase().replace(' ', '-')}`}>
-            <strong>{record.teamName}</strong>
-          </p>
-          <p>{record.reason}</p>
-          <p>
-            <small><i>Reported by:</i> {record.reporter}</small>
-          </p>
-          <p>
-            <small><i>Date:</i> {record.date} at {record.time}</small>
-          </p>
-        </div>
-        <div className="points">
-          <span className="deduction-points">{record.points}</span>
-          <br />
-          <small>points</small>
-        </div>
-      </div>
-    ))}
+      ))
+    )}
   </div>
 );
 
@@ -775,16 +150,19 @@ const MinusPointsPage = () => (
         <div key={index} className={`team ${team.name.toLowerCase().replace(' ', '-')}`}>
           <h3>{team.name}</h3>
           <p style={{
-          
             color: 'red',
-            borderRadius: '8px',  
+            borderRadius: '8px',
             fontWeight: 700,
- 
-          }}>Total Deduction:  {team.totalDeduction} pts</p>
+          }}>
+            Total Deduction: {team.totalDeduction} pts
+          </p>
           <p>Incidents: {team.incidents}</p>
         </div>
       ))}
     </section>
+
+    {/* 🔥 Creative Portal Section for Google Sheets */}
+    <PenaltyDashboardPortal />
 
     <DetailedPenaltyRecords />
     <PenaltyGuidelines />
