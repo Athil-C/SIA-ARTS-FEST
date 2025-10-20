@@ -20,10 +20,10 @@ const penaltyRecords = [
 ];
 
 const teamsSummary = [
-  { name: 'Meem', totalDeduction: -38, incidents: 27 },
-  { name: 'Dal', totalDeduction: -42, incidents: 24 },
-  { name: 'Seen', totalDeduction: -10, incidents: 9 },
-  { name: 'Qāf', totalDeduction: -34, incidents: 17 },
+  { name: 'Meem', totalDeduction: -40, incidents: 27 },
+  { name: 'Dal', totalDeduction: -43, incidents: 24 },
+  { name: 'Seen', totalDeduction: -8, incidents: 9 },
+  { name: 'Qāf', totalDeduction: -41, incidents: 17 },
 ];
 
 // 🔐 Creative Dashboard Portal Section

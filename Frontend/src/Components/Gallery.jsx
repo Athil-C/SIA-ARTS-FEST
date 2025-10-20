@@ -146,6 +146,87 @@ import img145 from "../assets/gallery/img145.jpg";
 import img146 from "../assets/gallery/img146.jpg";
 import img147 from "../assets/gallery/img147.jpg";
 import img148 from "../assets/gallery/img148.jpg";
+import img149 from "../assets/gallery/img149.jpg";
+import img150 from "../assets/gallery/img150.jpg";
+import img151 from "../assets/gallery/img151.jpg";
+import img152 from "../assets/gallery/img152.jpg";
+import img153 from "../assets/gallery/img153.jpg";
+import img154 from "../assets/gallery/img154.jpg";
+import img155 from "../assets/gallery/img155.jpg";
+import img156 from "../assets/gallery/img156.jpg";
+import img157 from "../assets/gallery/img157.jpg";
+import img158 from "../assets/gallery/img158.jpg";
+import img159 from "../assets/gallery/img159.jpg";
+import img160 from "../assets/gallery/img160.jpg";
+import img161 from "../assets/gallery/img161.jpg";
+import img162 from "../assets/gallery/img162.jpg";
+import img163 from "../assets/gallery/img163.jpg";
+import img164 from "../assets/gallery/img164.jpg";
+import img165 from "../assets/gallery/img165.jpg";
+import img166 from "../assets/gallery/img166.jpg";
+import img167 from "../assets/gallery/img167.jpg";
+import img168 from "../assets/gallery/img168.jpg";
+import img169 from "../assets/gallery/img169.jpg";
+import img170 from "../assets/gallery/img170.jpg";
+import img171 from "../assets/gallery/img171.jpg";
+import img172 from "../assets/gallery/img172.jpg";
+import img173 from "../assets/gallery/img173.jpg";
+import img174 from "../assets/gallery/img174.jpg";
+import img175 from "../assets/gallery/img175.jpg";
+import img176 from "../assets/gallery/img176.jpg";
+import img177 from "../assets/gallery/img177.jpg";
+import img178 from "../assets/gallery/img178.jpg";
+import img179 from "../assets/gallery/img179.jpg";
+import img180 from "../assets/gallery/img180.jpg";
+import img181 from "../assets/gallery/img181.jpg";
+import img182 from "../assets/gallery/img182.jpg";
+import img183 from "../assets/gallery/img183.jpg";
+import img184 from "../assets/gallery/img184.jpg";
+import img185 from "../assets/gallery/img185.jpg";
+import img186 from "../assets/gallery/img186.jpg";
+import img187 from "../assets/gallery/img187.jpg";
+import img188 from "../assets/gallery/img188.jpg";
+import img189 from "../assets/gallery/img189.jpg";
+import img190 from "../assets/gallery/img190.jpg";
+import img191 from "../assets/gallery/img191.jpg";
+import img192 from "../assets/gallery/img192.jpg";
+import img193 from "../assets/gallery/img193.jpg";
+import img194 from "../assets/gallery/img194.jpg";
+import img195 from "../assets/gallery/img195.jpg";
+import img196 from "../assets/gallery/img196.jpg";
+import img197 from "../assets/gallery/img197.jpg";
+import img198 from "../assets/gallery/img198.jpg";
+import img199 from "../assets/gallery/img199.jpg";
+import img200 from "../assets/gallery/img200.jpg";
+import img201 from "../assets/gallery/img201.jpg";
+import img202 from "../assets/gallery/img202.jpg";
+import img203 from "../assets/gallery/img203.jpg";
+import img204 from "../assets/gallery/img204.jpg";
+import img205 from "../assets/gallery/img205.jpg";
+import img206 from "../assets/gallery/img206.jpg";
+import img207 from "../assets/gallery/img207.jpg";
+import img208 from "../assets/gallery/img208.jpg";
+import img209 from "../assets/gallery/img209.jpg";
+ 
+import img211 from "../assets/gallery/img211.jpg";
+ 
+import img213 from "../assets/gallery/img213.jpg";
+import img214 from "../assets/gallery/img214.jpg";
+import img215 from "../assets/gallery/img215.jpg";
+ 
+import img217 from "../assets/gallery/img217.jpg";
+import img218 from "../assets/gallery/img218.jpg";
+import img219 from "../assets/gallery/img219.jpg";
+import img220 from "../assets/gallery/img220.jpg";
+import img221 from "../assets/gallery/img221.jpg";
+import img222 from "../assets/gallery/img222.jpg";
+import img223 from "../assets/gallery/img223.jpg";
+import img224 from "../assets/gallery/img224.jpg";
+import img225 from "../assets/gallery/img225.jpg";
+import img226 from "../assets/gallery/img226.jpg";
+import img227 from "../assets/gallery/img227.jpg";
+
+
 
 
 
@@ -158,9 +239,17 @@ const Gallery = () => {
 
   // ✅ All images in descending order
   const images = [
-    img148, img146, img145, img144, img143, img142, img147, img141, img140, img139, img138, img137, img136, img135, img134, img133, img132, img131, img130, img129, img128, img127, img126, img125,
-    img124, img123, img122, img121, img120, img119, img118, img117, img116, img115, img114, img113,
-    img112, img111, img110, img109, img108, img107, img106, img105, img104, img103, img102, img101,
+    img227, img226, img225, img224, img223, img222, img221, img220, img219, img218, img217, 
+    img215, img214, img213,  img211,  img209, img208, img207, img206, img205, img204,
+    img203, img202, img201, img200, img199, img198, img197, img196, img195, img194, img193, img192,
+    img191, img190, img189, img188, img187, img186, img185, img184, img183, img182, img181, img180,
+    img179, img178, img177, img176, img175, img174, img173, img172, img171, img170, img169, img168,
+    img167, img166, img165, img164, img163, img162, img161, img160, img159, img158, img157, img156,
+    img155, img154, img153, img152, img151, img150, img149, img148, img146, img145, img144, img143,
+    img142, img147, img141, img140, img139, img138, img137, img136, img135, img134, img133, img132,
+    img131, img130, img129, img128, img127, img126, img125, img124, img123, img122, img121, img120,
+    img119, img118, img117, img116, img115, img114, img113, img112, img111, img110, img109, img108,
+    img107, img106, img105, img104, img103, img102, img101,
     img100, img99, img98, img97, img96, img95, img94, img93, img92, img91, img90, img89, img88, img87,
     img86, img85, img84, img83, img82, img81, img80, img79, img78, img77, img76, img75, img74, img73,
     img72, img71, img70, img69, img68, img67, img66, img65, img64, img63, img62, img61, img60, img58,
@@ -196,7 +285,7 @@ const Gallery = () => {
             <img
               src={src}
               alt={`Gallery ${index}`}
-              className="w-full h-53 object-cover"
+              className="w-full  h-53 object-cover"
             />
           </div>
         ))}
