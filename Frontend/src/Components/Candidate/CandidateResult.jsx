@@ -2972,8 +2972,29 @@ const candidateData = [
   { "event": "FACE TO FACE ENG" },
   { "event": "MAPPILAPPAT" }
 ]
+ 
 
   },
+    {
+    "id": "550",
+    "name": "Shiban",
+    "chestNo": "550",
+    "programs": [
+  { "event": "HISTORY TALK ENG" },
+  { "event": "JUST A MINUTE" },
+  { "event": "PADHYAPARAYANAM" },
+  { "event": "ESSAY MLM" },
+  { "event": "POEM WRITING MLM" },
+  { "event": "NEWS READING AND READING MLM" },
+  { "event": "STORY WRITING MLM" },
+  { "event": "PROOF READING MLM" },
+  { "event": "TYPING TRILINGUAL" },
+  { "event": "SLOGAN MAKING" },
+  { "event": "FEATURE WRITING MLM" }
+]
+
+  },
+
   {
     "id": "520",
     "name": "HISHAM ABDULLA",

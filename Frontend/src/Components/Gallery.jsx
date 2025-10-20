@@ -213,6 +213,7 @@ import img211 from "../assets/gallery/img211.jpg";
 import img213 from "../assets/gallery/img213.jpg";
 import img214 from "../assets/gallery/img214.jpg";
 import img215 from "../assets/gallery/img215.jpg";
+import img228 from "../assets/gallery/99.jpg";
  
 import img217 from "../assets/gallery/img217.jpg";
 import img218 from "../assets/gallery/img218.jpg";
@@ -239,7 +240,7 @@ const Gallery = () => {
 
   // ✅ All images in descending order
   const images = [
-    img227, img226, img225, img224, img223, img222, img221, img220, img219, img218, img217, 
+    img228,img227, img226, img225, img224, img223, img222, img221, img220, img219, img218, img217, 
     img215, img214, img213,  img211,  img209, img208, img207, img206, img205, img204,
     img203, img202, img201, img200, img199, img198, img197, img196, img195, img194, img193, img192,
     img191, img190, img189, img188, img187, img186, img185, img184, img183, img182, img181, img180,
