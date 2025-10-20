@@ -1,39 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Activity, Medal } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { useResults } from '../../../context/DataContext';
-import LiveTicker from "../LiveTicker"; // Correct path
+import LiveTicker from "../LiveTicker"; // ✅ correct path
 
-
-// Define team colors and styling
+// 🎨 Team colors
 const TEAM_COLORS = {
-  'ALEXANDRIA': { primary: '#4cad4e', gradient: 'from-[#4cad4e] to-[#3d8c3f]', light: '#e8f5e9' },
-  'SHATIBIYA': { primary: '#c9194a', gradient: 'from-[#c9194a] to-[#a1143b]', light: '#fce4ec' },
-  'SHAMIYA': { primary: '#6b3f24', gradient: 'from-[#6b3f24] to-[#4e2e1a]', light: '#efebe9' },
-  'HIJAZIYYA': { primary: '#5a199b', gradient: 'from-[#5a199b] to-[#461477]', light: '#f3e5f5' },
-  'QADISIYYA': { primary: '#33658a', gradient: 'from-[#33658a] to-[#254c68]', light: '#e3f2fd' },
-  'KAZIMIYYA': { primary: '#ffb703', gradient: 'from-[#ffb703] to-[#cc9202]', light: '#fff8e1' },
-  // New teams added with colors
   'QĀF': { primary: '#FF6F61', gradient: 'from-[#FF6F61] to-[#D45746]', light: '#FFD1C5' },
   'MEEM': { primary: '#6B8E23', gradient: 'from-[#6B8E23] to-[#556B2F]', light: '#B8E986' },
   'DAL': { primary: '#FFB84D', gradient: 'from-[#FFB84D] to-[#E29A34]', light: '#FFEBB8' },
   'SEEN': { primary: '#483D8B', gradient: 'from-[#483D8B] to-[#2A2A7A]', light: '#B0C4DE' }
 };
 
-const TEAM_NAME_MAP = {
-  SHA: 'SHATIBIYA',
-  ALE: 'ALEXANDRIA',
-  KAZ: 'KAZIMIYYA',
-  QAD: 'QADISIYYA',
-  HIJ: 'HIJAZIYYA',
-  SHM: 'SHAMIYA',
-  QĀF: 'QĀF',
-  MEE: 'MEEM',
-  DAL: 'DAL',
-  SEE: 'SEEN'
-};
+// 🧮 Static team data
+const STATIC_TEAMS = [
+  { teamName: 'QĀF', totalPoints: 1667, colors: TEAM_COLORS['QĀF'] },
+  { teamName: 'MEEM', totalPoints: 1530, colors: TEAM_COLORS['MEEM'] },
+  { teamName: 'DAL', totalPoints: 1442, colors: TEAM_COLORS['DAL'] },
+  { teamName: 'SEEN', totalPoints: 1948, colors: TEAM_COLORS['SEEN'] }
+];
 
+// 🏅 TeamCard component (unchanged)
 const TeamCard = ({ team, index, totalPoints }) => {
   const getMedalColor = (index) => {
     switch (index) {
@@ -70,9 +56,7 @@ const TeamCard = ({ team, index, totalPoints }) => {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-semibold ">
-                    {team.teamName}
-                  </h3>
+                  <h3 className="font-semibold ">{team.teamName}</h3>
                   {index < 3 && (
                     <Medal
                       className="w-5 h-5"
@@ -80,9 +64,7 @@ const TeamCard = ({ team, index, totalPoints }) => {
                     />
                   )}
                 </div>
-                <p className="text-sm text-gray-500">
-                  Rank #{index + 1}
-                </p>
+                <p className="text-sm text-gray-500">Rank #{index + 1}</p>
               </div>
             </div>
             <div className="text-right">
@@ -115,41 +97,9 @@ const TeamCard = ({ team, index, totalPoints }) => {
   );
 };
 
+// 📊 TeamOverview component (original style)
 const TeamOverview = () => {
-  const navigate = useNavigate();
-  const { results } = useResults();
-
-  const calculateTeamPoints = () => {
-    let currentResults = results;
-
-    if (!currentResults || currentResults.length === 0) {
-      const storedResults = localStorage.getItem('teamResults');
-      currentResults = storedResults ? JSON.parse(storedResults) : [];
-    }
-
-    const teamPoints = {};
-    currentResults.forEach((result) => {
-      const teamName = TEAM_NAME_MAP[result.teamCode] || result.teamName.toUpperCase();
-      if (!teamPoints[teamName]) {
-        teamPoints[teamName] = 0;
-      }
-      teamPoints[teamName] += result.points;
-    });
-
-    return Object.entries(teamPoints)
-      .map(([teamName, totalPoints]) => ({
-        teamName,
-        totalPoints,
-        colors: TEAM_COLORS[teamName] || {
-          primary: '#6B7280',
-          gradient: 'from-gray-500 to-gray-600',
-          light: '#F9FAFB'
-        }
-      }))
-      .sort((a, b) => b.totalPoints - a.totalPoints);
-  };
-
-  const teams = calculateTeamPoints();
+  const teams = STATIC_TEAMS.sort((a, b) => b.totalPoints - a.totalPoints);
   const totalPoints = teams.reduce((sum, team) => sum + team.totalPoints, 0);
 
   return (
@@ -189,7 +139,7 @@ const TeamOverview = () => {
             </div>
           </div>
 
-          {/* DistributionChart */}
+          {/* Points Distribution Chart */}
           <div className="p-12 rounded-lg sm:rounded-xl order-1 lg:order-2 h-[300px] sm:h-[400px] lg:h-auto ">
             <h4 className="text-xs sm:text-sm font-medium text-gray-600 sm:mb-6 ms-[-20px] mt-[-20px] pb-4 mb-4">
               Points Distribution
