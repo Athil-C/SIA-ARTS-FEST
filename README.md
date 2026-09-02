@@ -86,13 +86,3 @@ https://witr-2k25.vercel.app/
 Special thanks to our dedicated team, supportive faculty, and passionate participants who bring WITR 2k25 to life!
 <sub>
 </div>
-Download the file: README.md
-What to customize:
-Table
-Placeholder	Replace With
-your.email@example.com	Your actual contact email
-yourusername/witr-2k25	Your GitHub repo path
-Placeholder images (via.placeholder.com)	Actual screenshots of your website
-Banner image URL	Your actual project banner
-Feature descriptions	Your actual WITR 2k25 features
-Tech stack badges	Your actual technologies (if different)
